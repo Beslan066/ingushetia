@@ -12,6 +12,17 @@ Route::get('/', function () {
 Route::get('/region', function () {
     return Inertia::render('Region/Region');
 });
+Route::get('/economic', function () {
+    return Inertia::render('Region/Economic');
+});
+Route::get('/history', function () {
+    return Inertia::render('Region/History');
+});
+
+Route::get('/municipality', function () {
+    return Inertia::render('Region/Municipality');
+});
+
 
 Route::get('/news', function () {
     return Inertia::render('News/News');

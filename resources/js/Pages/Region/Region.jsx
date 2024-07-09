@@ -1,5 +1,7 @@
 import "../../../../public/css/region.css";
 import Guest from "@/Layouts/GuestLayout.jsx";
+import { Link, Head } from '@inertiajs/react';
+
 
 export default function Region() {
     return (
@@ -90,13 +92,13 @@ export default function Region() {
                     <div className="main-right  ml-32">
                         <div className="d-flex flex-column mb-32 region-links">
                             <ul className="region-pager">
-                                <li className="active"><a href="region.html">О Республике</a></li>
-                                <li><a href="history.html">История</a></li>
-                                <li><a href="economic.html">Экономика</a></li>
-                                <li><a href="municipality.html">Муниципальные образования</a></li>
-                                <li><a href="">Социально-экономическое развитие</a></li>
-                                <li><a href="">Реализация стратегических инициатив Президента РФ</a></li>
-                                <li><a href="">Поддержка семей военнослужащих</a></li>
+                                <li className="active"><Link href="/region">О Республике</Link></li>
+                                <li><Link href="/history">История</Link></li>
+                                <li><Link href="/economic">Экономика</Link></li>
+                                <li><Link href="/municipality">Муниципальные образования</Link></li>
+                                <li><Link href="">Социально-экономическое развитие</Link></li>
+                                <li><Link href="">Реализация стратегических инициатив Президента РФ</Link></li>
+                                <li><Link href="">Поддержка семей военнослужащих</Link></li>
                             </ul>
                         </div>
                     </div>
