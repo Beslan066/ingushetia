@@ -20,7 +20,7 @@ h1,h2,h3,h4 {
 }
 
 .mr-12 {
-    margin-right: 12px;                     
+    margin-right: 12px;
 }
 
 .mr-32 {
@@ -136,7 +136,7 @@ header {
 
 .header-menu li {
     list-style: none;
-    
+
 }
 
 .menu-icons button {
@@ -227,7 +227,7 @@ header {
 .news-date {
     font-size: 16px;
     color: #fff;
-    
+
 }
 
 .news-date span {
@@ -385,7 +385,7 @@ main .filtered-news-item h4 {
 
 .more-news a:hover {
     color: #07A267;
-    
+
 }
 
 .important {
@@ -490,7 +490,7 @@ main .filtered-news-item h4 {
 }
 
 .municipality-city ul {
-    padding: unset !important; 
+    padding: unset !important;
 }
 
 .municipality-city li {
@@ -522,7 +522,7 @@ main .filtered-news-item h4 {
 }
 
 .document-item {
-    background-color: #DFDFDF;
+    background-color: #f6f6f6;
     padding: 32px;
     margin-bottom: 18px;
 }
@@ -638,7 +638,7 @@ section.municipalities.mb-32 {
     background-color: #F6F6F6;
     color: #6C6C6C;
     border: none;
-    
+
 }
 
 .filter-body option {
@@ -655,7 +655,7 @@ section.municipalities.mb-32 {
 .filter-body .d-flex button:first-child{
     background-color: #07A267;
     color: #fff;
-    
+
 }
 
 .filter-body .d-flex button:last-child {

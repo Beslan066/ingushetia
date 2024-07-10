@@ -2,6 +2,8 @@
 import { Link } from '@inertiajs/react';
 import 'bootstrap/dist/css/bootstrap.css';
 import "../../../public/css/globals.css";
+import "../../../public/css/region.css";
+
 
 export default function Guest({ children }) {
     return (

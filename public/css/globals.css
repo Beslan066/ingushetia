@@ -226,6 +226,7 @@ header {
 .main-material-title {
   font-size: 35px !important;
   color: #fff;
+    cursor: pointer;
 }
 
 .news-date {
@@ -289,6 +290,7 @@ header {
   margin-bottom: 16px;
   font-size: 16px;
   font-weight: 400;
+    cursor: pointer;
 }
 
 .news-item {
@@ -530,7 +532,7 @@ main .filtered-news-item h4 {
 }
 
 .document-item {
-  background-color: #DFDFDF;
+  background-color: #f6f6f6;
   padding: 32px;
   margin-bottom: 18px;
 }
@@ -629,6 +631,11 @@ section.municipalities.mb-32 {
 }
 .load-news {
   margin-bottom: 20px;
+}
+
+.gallery-icon {
+    width: 60px;
+    cursor: pointer;
 }
 
 .load-news button{

@@ -1,9 +1,55 @@
 import "../../../../public/css/region.css";
 import Guest from "@/Layouts/GuestLayout.jsx";
 import { Link, Head } from '@inertiajs/react';
+import React, { useState } from 'react';
+import Accordion from "@/Components/Region/Accordion.jsx";
 
 
 export default function Region() {
+
+    const [openItemId, setOpenItemId] = useState(null);
+
+    const handleItemClick = (id) => {
+        setOpenItemId(openItemId === id ? null : id);
+    };
+
+    const accordionItems = [
+        {
+            title: 'География',
+            content: <p>Территория И. расположена...</p>,
+            id: 'drawer-1',
+        },
+        {
+            title: 'Рельеф, геология и полезные ископаемые',
+            content: <p>Важнейшие полезные ископаемые И. – нефть и природный газ...</p>,
+            id: 'drawer-2',
+        },
+        {
+            title: 'Полезные ископаемые',
+            content: (
+                <>
+                    <p>
+                        Территория И. расположена в пределах складчато-покровной системы
+                        Большого Кавказа Альпийско-Гималайского подвижного пояса. Северная часть
+                        И. (Терский и Сунженский хребты, разделённые Алханчуртской долиной,
+                        Чеченская равнина) находится в пределах Терско-Каспийского передового
+                        прогиба (заполнен олигоцен-неогеновой молассой), строение которого
+                        осложнено Терским и Сунженским валами. Тектоническая зона северного
+                        склона Большого Кавказа (Чёрные горы, Пастбищный и Скалистый хребты)
+                        сложена наклонно залегающими шельфовыми терригенно-карбонатными
+                        отложениями верхней юры – эоцена (глинами, песчаниками, мергелями,
+                        известняками, доломитами). В осевой зоне (антиклинорий Бокового хребта)
+                        развита интенсивно деформированная черносланцевая формация нижней и
+                        средней юры. Горная Ингушетия область интенсивной сейсмичности.
+                    </p>
+                    <img className="w-100" src="../../img/Rectangle 1.png" alt="" />
+                </>
+            ),
+            id: 'drawer-3',
+        },
+    ];
+
+
     return (
         <Guest>
             <main className="mt-40">
@@ -38,51 +84,14 @@ export default function Region() {
 
                         <div className="region-accordion mb-40">
                             <section className="drawers">
-                                <div className="accordion-header" data-target="drawer-1">
-                                    <span>География</span>
-                                    <img src="../../img/icons/Plus.svg" alt="" className="icon"/>
-                                </div>
-                                <div className="drawer" id="drawer-1">
-                                    <div className="drawer-content">
-                                        <p>Территория И. расположена...</p>
-                                    </div>
-                                </div>
-
-                                <div className="accordion-header" data-target="drawer-2">
-                                    <span>Рельеф, геология и полезные ископаемые</span>
-                                    <img src="../../img/icons/Plus.svg" alt="" className="icon"/>
-                                </div>
-                                <div className="drawer" id="drawer-2">
-                                    <div className="drawer-content">
-                                        <p>Важнейшие полезные ископаемые И. – нефть и природный газ...</p>
-                                    </div>
-                                </div>
-
-                                <div className="accordion-header" data-target="drawer-3">
-                                    <span>Полезные ископаемые</span>
-                                    <img src="../../img/icons/Plus.svg" alt="" className="icon"/>
-                                </div>
-                                <div className="drawer" id="drawer-3">
-                                    <div className="drawer-content">
-                                        <p>Территория И. расположена в пределах складчато-покровной системы
-                                            Большого Кавказа Альпийско-Гималайского подвижного пояса.
-                                            Северная часть И. (Терский и Сунженский хребты, разделённые
-                                            Алханчуртской долиной, Чеченская равнина) находится в пределах
-                                            Терско-Каспийского передового прогиба (заполнен
-                                            олигоцен-неогеновой молассой), строение которого осложнено
-                                            Терским и Сунженским валами.
-                                            Тектоническая зона северного склона Большого Кавказа (Чёрные горы,
-                                            Пастбищный и Скалистый хребты) сложена наклонно залегающими
-                                            шельфовыми
-                                            терригенно-карбонатными отложениями верхней юры – эоцена
-                                            (глинами, песчаниками, мергелями, известняками, доломитами).
-                                            В осевой зоне (антиклинорий Бокового хребта) развита интенсивно
-                                            деформированная черносланцевая формация нижней и средней юры.
-                                            Горная Ингушетия область интенсивной сейсмичности.
-                                        </p>
-                                        <img className="w-100" src="../../img/Rectangle 1.png" alt=""/>
-                                    </div>
-                                </div>
+                                {accordionItems.map((item) => (
+                                    <Accordion
+                                        key={item.id}
+                                        {...item}
+                                        isOpen={openItemId === item.id}
+                                        onClick={handleItemClick}
+                                    />
+                                ))}
                             </section>
                         </div>
 

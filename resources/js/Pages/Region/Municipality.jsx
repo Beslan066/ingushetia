@@ -1,9 +1,15 @@
 import "../../../../public/css/region.css";
 import Guest from "@/Layouts/GuestLayout.jsx";
 import { Link, Head } from '@inertiajs/react';
+import React from 'react'
+import MunicipalityModal from "@/Components/MunicipalityModal.jsx";
+
 
 
 export default function Municipality() {
+
+    const [regionModal,setRegionModal] = React.useState(false);
+
     return (
         <Guest>
             <main className="mt-40">
@@ -39,7 +45,7 @@ export default function Municipality() {
                         <div className="cities mb-32">
                             <h3 className="mb-24">Городские округа</h3>
                             <ul>
-                                <li onClick="openRegionModal()">
+                                <li onClick={() => setRegionModal(true)}>
                                     <div>
                                         <h4>Магас</h4>
                                         <span>24 550 чел.</span>
@@ -128,6 +134,8 @@ export default function Municipality() {
                     </div>
                 </div>
             </main>
+
+            <MunicipalityModal active={regionModal} onClose={() => setRegionModal(false)}/>
         </Guest>
 )
 }

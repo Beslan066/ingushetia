@@ -1,13 +1,17 @@
 import Guest from "@/Layouts/GuestLayout.jsx";
 import { Link } from '@inertiajs/react';
 import "../../../../public/css/region.css";
-import React from 'react'
+import React, { useState } from 'react';
+
 export default function History() {
+
+    const [tab, setTab] = React.useState(false);
+
     return(
         <Guest>
             <main className="mt-40">
                 <div className="container">
-                    <h2 className="mb-32">История Республике Ингушетия</h2>
+                    <h2 className="mb-32">История Республики Ингушетия</h2>
                 </div>
                 <div className="container d-flex w-full  col-xxl-12 news-page">
                     <div className="main-left col-xxl-9">

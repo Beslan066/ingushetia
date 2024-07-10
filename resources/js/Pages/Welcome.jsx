@@ -28,7 +28,7 @@ export default function Welcome() {
                                             className="news-category ml-4">Туризм</span>
                                         </p>
                                         <a>
-                                            <h2  className="main-material-title">Количество туристов в
+                                            <h2 className="main-material-title">Количество туристов в
                                                 2023 году увеличилось на 24% по данным ИСТ</h2>
                                         </a>
                                         <div
@@ -117,7 +117,8 @@ export default function Welcome() {
                                         </div>
                                         <img src="img/icons/video-icon.svg" alt=""/>
                                     </div>
-                                        <h2 onClick={() => setModal(true)}>М-А. Калиматов проверил ход восстановительных работ в Карабулаке</h2>
+                                    <h2 onClick={() => setModal(true)}>М-А. Калиматов проверил ход восстановительных
+                                        работ в Карабулаке</h2>
                                 </div>
 
                                 <div className="news-item">
@@ -127,7 +128,8 @@ export default function Welcome() {
                                             className="news-category">Образование</span>
                                         </div>
                                     </div>
-                                    <h2 onClick={() => setModal(true)}>В с.п. Сурхахи открылась новая школа на 320 мест</h2>
+                                    <h2 onClick={() => setModal(true)}>В с.п. Сурхахи открылась новая школа на 320
+                                        мест</h2>
 
                                 </div>
                                 <div className="news-item">
@@ -179,8 +181,8 @@ export default function Welcome() {
                                 </div>
 
                                 <div className="more-news">
-                                    <Link>
-                                    <span>Смотреть все</span>
+                                    <Link className={'d-flex'}>
+                                        <span>Смотреть все</span>
                                         <img src="img/icons/longarrow.svg" alt=""/>
                                     </Link>
                                 </div>
@@ -282,6 +284,150 @@ export default function Welcome() {
                         </div>
                     </div>
                 </section>
+                <section className="home-media">
+                    <div className="container d-flex flex-column">
+                        <h2>Новости министерств</h2>
+                        <div className="filtered-news w-full d-flex mt-40 flex-column">
+
+                            <div className="filter-items">
+                                <button className="active">Миннац</button>
+                                <button>Министерство Образования</button>
+                                <button>Министерство здравохранения</button>
+                                <button>Министерство спорта</button>
+                                <button>Комитет по туризму</button>
+                            </div>
+                        </div>
+                        <div className="d-flex justify-content-between flex-wrap">
+                                <div className="filtered-news-item col-4 ">
+                                    <div className="news-image">
+                                        <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
+                                    </div>
+
+                                    <div className="news-text pl-20 d-flex flex-column justify-content-between">
+                                        <div>
+                                            <Link href="">
+                                                <h4>Глава республики посетил открытие новой школы</h4>
+                                            </Link>
+                                        </div>
+                                        <p className="news-date">27 июня <span
+                                            className="news-category ml-4">Проекты</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="filtered-news-item col-4">
+                                    <div className="news-image">
+                                        <img className="w-100 h-100" src="img/content/image 7 (2).png" alt=""/>
+                                    </div>
+                                    <div className="news-text pl-20 d-flex flex-column justify-content-between">
+                                        <div>
+                                            <Link href="">
+                                                <h4>НИИ Ингушетии представели новый дрон для сельского хозяйства</h4>
+                                            </Link>
+                                        </div>
+                                        <p className="news-date">27 июня <span
+                                            className="news-category ml-4">Проекты</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="filtered-news-item col-4">
+                                    <div className="news-image">
+                                        <img className="w-100" src="img/content/image 7 (3).png" alt=""/>
+                                    </div>
+
+                                    <div className="news-text pl-20 d-flex flex-column justify-content-between">
+                                        <div>
+                                            <Link href="">
+                                                <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
+                                            </Link>
+                                        </div>
+                                        <p className="news-date">27 июня <span
+                                            className="news-category ml-4">Проекты</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="filtered-news-item col-4">
+                                    <div className="news-image">
+                                        <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
+                                    </div>
+
+                                    <div className="news-text pl-20 d-flex flex-column justify-content-between">
+                                        <div>
+                                            <Link href="">
+                                                <h4>Глава республики посетил открытие новой школы</h4>
+                                            </Link>
+                                        </div>
+                                        <p className="news-date">27 июня <span
+                                            className="news-category ml-4">Проекты</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="filtered-news-item col-4">
+                                    <div className="news-image">
+                                        <img className="w-100 h-100" src="img/content/image 7 (2).png" alt=""/>
+                                    </div>
+                                    <div className="news-text pl-20 d-flex flex-column justify-content-between">
+                                        <div>
+                                            <Link href="">
+                                                <h4>НИИ Ингушетии представели новый дрон для сельского хозяйства</h4>
+                                            </Link>
+                                        </div>
+                                        <p className="news-date">27 июня <span
+                                            className="news-category ml-4">Проекты</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="filtered-news-item col-4">
+                                    <div className="news-image">
+                                        <img className="w-100" src="img/content/image 7 (3).png" alt=""/>
+                                    </div>
+
+                                    <div className="news-text pl-20 d-flex flex-column justify-content-between">
+                                        <div>
+                                            <Link href="">
+                                                <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
+                                            </Link>
+                                        </div>
+                                        <p className="news-date">27 июня <span
+                                            className="news-category ml-4">Проекты</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="filtered-news-item col-4">
+                                    <div className="news-image">
+                                        <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
+                                    </div>
+
+                                    <div className="news-text pl-20 d-flex flex-column justify-content-between">
+                                        <div>
+                                            <Link href="">
+                                                <h4>Глава республики посетил открытие новой школы</h4>
+                                            </Link>
+                                        </div>
+                                        <p className="news-date">27 июня <span
+                                            className="news-category ml-4">Проекты</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="filtered-news-item col-4">
+                                    <div className="news-image">
+                                        <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
+                                    </div>
+
+                                    <div className="news-text pl-20 d-flex flex-column justify-content-between">
+                                        <div>
+                                            <Link href="">
+                                                <h4>Глава республики посетил открытие новой школы</h4>
+                                            </Link>
+                                        </div>
+                                        <p className="news-date">27 июня <span
+                                            className="news-category ml-4">Проекты</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </section>
 
                 <section className="municipalities  mb-32">
                     <div className="container d-flex flex-column">
@@ -312,7 +458,7 @@ export default function Welcome() {
                                     </div>
                                     <div className="municipality-date d-flex flex-column">
                                         <span>Глава города</span>
-                                        <span>John Doe</span>
+                                        <span>Орцханов Зайт </span>
                                     </div>
                                 </div>
                             </div>
@@ -343,11 +489,15 @@ export default function Welcome() {
                 </section>
 
                 <section className="home-media">
-                    <div className="container">
+                    <div className="container d-flex flex-column">
+                        <h2 className={'mb-24'}>Фото и видеорепортажи</h2>
                         <div className="d-flex justify-content-between flex-wrap">
                             <div className="filtered-news-item col-4 ">
-                                <div className="news-image">
+                                <div className="news-image position-relative d-flex flex-column align-items-center">
                                     <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
+                                    <div className={'position-absolute gallery-icon'}>
+                                        <img src="img/icons/gallery.svg" alt=""/>
+                                    </div>
                                 </div>
 
                                 <div className="news-text pl-20 d-flex flex-column justify-content-between">
@@ -361,8 +511,11 @@ export default function Welcome() {
                                 </div>
                             </div>
                             <div className="filtered-news-item col-4">
-                                <div className="news-image">
+                                <div className="news-image position-relative d-flex flex-column align-items-center">
                                     <img className="w-100 h-100" src="img/content/image 7 (2).png" alt=""/>
+                                    <div className={'position-absolute gallery-icon'}>
+                                        <img src="img/icons/gallery.svg" alt=""/>
+                                    </div>
                                 </div>
                                 <div className="news-text pl-20 d-flex flex-column justify-content-between">
                                     <div>
@@ -375,8 +528,11 @@ export default function Welcome() {
                                 </div>
                             </div>
                             <div className="filtered-news-item col-4">
-                                <div className="news-image">
+                                <div className="news-image position-relative d-flex flex-column align-items-center">
                                     <img className="w-100" src="img/content/image 7 (3).png" alt=""/>
+                                    <div className={'position-absolute gallery-icon'}>
+                                        <img src="img/icons/gallery.svg" alt=""/>
+                                    </div>
                                 </div>
 
                                 <div className="news-text pl-20 d-flex flex-column justify-content-between">
@@ -391,8 +547,11 @@ export default function Welcome() {
                             </div>
 
                             <div className="filtered-news-item col-4">
-                                <div className="news-image">
+                                <div className="news-image position-relative d-flex flex-column align-items-center">
                                     <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
+                                    <div className={'position-absolute gallery-icon'}>
+                                        <img src="img/icons/play.svg" alt=""/>
+                                    </div>
                                 </div>
 
                                 <div className="news-text pl-20 d-flex flex-column justify-content-between">
@@ -406,37 +565,46 @@ export default function Welcome() {
                                 </div>
                             </div>
                             <div className="filtered-news-item col-4">
-                                <div className="news-image">
+                                <div className="news-image position-relative d-flex flex-column align-items-center">
                                     <img className="w-100 h-100" src="img/content/image 7 (2).png" alt=""/>
+                                    <div className={'position-absolute gallery-icon'}>
+                                        <img src="img/icons/gallery.svg" alt=""/>
+                                    </div>
                                 </div>
                                 <div className="news-text pl-20 d-flex flex-column justify-content-between">
-                                   <div>
-                                       <Link href="">
-                                           <h4>НИИ Ингушетии представели новый дрон для сельского хозяйства</h4>
-                                       </Link>
-                                   </div>
+                                    <div>
+                                        <Link href="">
+                                            <h4>НИИ Ингушетии представели новый дрон для сельского хозяйства</h4>
+                                        </Link>
+                                    </div>
                                     <p className="news-date">27 июня <span className="news-category ml-4">Проекты</span>
                                     </p>
                                 </div>
                             </div>
                             <div className="filtered-news-item col-4">
-                                <div className="news-image">
+                                <div className="news-image position-relative d-flex flex-column align-items-center">
                                     <img className="w-100" src="img/content/image 7 (3).png" alt=""/>
+                                    <div className={'position-absolute gallery-icon'}>
+                                        <img src="img/icons/play.svg" alt=""/>
+                                    </div>
                                 </div>
 
                                 <div className="news-text pl-20 d-flex flex-column justify-content-between">
-                                   <div>
-                                       <Link href="">
-                                           <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
-                                       </Link>
-                                   </div>
+                                    <div>
+                                        <Link href="">
+                                            <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
+                                        </Link>
+                                    </div>
                                     <p className="news-date">27 июня <span className="news-category ml-4">Проекты</span>
                                     </p>
                                 </div>
                             </div>
                             <div className="filtered-news-item col-4">
-                                <div className="news-image">
+                                <div className="news-image position-relative d-flex flex-column align-items-center">
                                     <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
+                                    <div className={'position-absolute gallery-icon'}>
+                                        <img src="img/icons/gallery.svg" alt=""/>
+                                    </div>
                                 </div>
 
                                 <div className="news-text pl-20 d-flex flex-column justify-content-between">
@@ -450,8 +618,11 @@ export default function Welcome() {
                                 </div>
                             </div>
                             <div className="filtered-news-item col-4">
-                                <div className="news-image">
+                                <div className="news-image position-relative d-flex flex-column align-items-center">
                                     <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
+                                    <div className={'position-absolute gallery-icon'}>
+                                        <img src="img/icons/gallery.svg" alt=""/>
+                                    </div>
                                 </div>
 
                                 <div className="news-text pl-20 d-flex flex-column justify-content-between">
