@@ -8,9 +8,9 @@ export default function Modal({ active, onClose }) {
                 <div className="modal-head w-100 d-flex aligh-items-center justify-content-between">
                     <p className="d-flex aligh-items-center">
                         <a href="">Главная </a>
-                        <span className="ml-12"></span>
+                        <span className="ml-12"><img className={'next-icon'} src="../../img/icons/no.svg" alt=""/></span>
                         <a className="ml-12" href="">Новости </a>
-                        <span className="ml-12"></span>
+                        <span className="ml-12"><img className={'next-icon'} src="../../img/icons/no.svg" alt=""/></span>
                         <a className="ml-12" href="">Новый современный спортивный комплекс появится в Ингушетии в 2025 году</a>
                     </p>
                     <div>

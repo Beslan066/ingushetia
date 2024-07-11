@@ -78,9 +78,6 @@
     color: black;
 }
 
-.region-pager li:hover {
-    font-size: 17px;
-}
 
 
 .region-pager li.active {
@@ -371,4 +368,70 @@ iframe {
 
 .city-contacts a:hover {
     color: #07A267;
+}
+
+
+/*  Authority page */
+.pravitelstvo-info h4{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 24px;
+}
+
+.pravitelstvo-info div {
+    margin-bottom: 35px;
+}
+
+.pravitelstvo-info p {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.government-head {
+    padding: 12px;
+}
+
+.government-img {
+    min-width: 160px !important;
+    height: 160px !important;
+}
+.government-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.government-man {
+    max-width: 436px;
+    display: flex;
+    margin-bottom: 32px;
+    padding: 12px;
+}
+
+.government-text {
+    padding: 10px 20px;
+}
+
+.government-text h2 {
+    font-size: 24px;
+    width: 100% !important;
+    cursor: pointer;
+
+}
+
+.government-text h3 {
+    font-size: 20px !important;
+    line-height: 28px;
+    cursor: pointer;
+
+}
+
+.government-text span {
+    font-size: 13px;
+    color: #6C6C6C;
+}
+
+.government-head span {
+    font-size: 16px;
+    color: #6C6C6C;
 }

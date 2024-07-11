@@ -99,7 +99,6 @@ export default function Economic() {
                                 <li><Link href="/municipality">Муниципальные образования</Link></li>
                                 <li><Link href="">Социально-экономическое развитие</Link></li>
                                 <li><Link href="">Реализация стратегических инициатив Президента РФ</Link></li>
-                                <li><Link href="">Поддержка семей военнослужащих</Link></li>
                             </ul>
                         </div>
                     </div>

@@ -22,6 +22,13 @@ Route::get('/history', function () {
 Route::get('/municipality', function () {
     return Inertia::render('Region/Municipality');
 });
+Route::get('/pravitelstvo', function () {
+    return Inertia::render('Authority/Authority');
+});
+
+Route::get('/sostav-pravitelstva', function () {
+    return Inertia::render('Authority/GovernmentTeam');
+});
 
 
 Route::get('/news', function () {

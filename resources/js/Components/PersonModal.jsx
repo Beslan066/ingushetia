@@ -1,8 +1,7 @@
 import "../../../public/css/modal.css";
 import React from "react";
-
-export default function MunicipalityModal({ active, onClose }) {
-    return(
+export default function PersonModal({ active, onClose }) {
+    return (
         <div>
             <div className="d-flex justify-content-center modal-section">
                 <div className={`main-modal col-7 p-32 ${active ? 'active' : ''}`} id="regionModal">
@@ -29,7 +28,7 @@ export default function MunicipalityModal({ active, onClose }) {
                         </div>
                         <div className="d-flex aligh-items-center mb-40 w-100">
                             <div className="city-logo">
-                                <img src="../../img/image 19.png" alt="Герб города Магас" />
+                                <img src="../../img/image 19.png" alt="Герб города Магас"/>
                             </div>
                             <div className="city-bio pl-32">
                                 <p className="mb-24">
