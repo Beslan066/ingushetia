@@ -214,12 +214,13 @@ header {
 }
 
 .main-title {
-  font-size: 28px;
-  font-weight: 800;
+  font-size: 20px;
+  font-weight: 600;
+    margin-bottom: unset !important;
 }
 
 .main-desc {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 
