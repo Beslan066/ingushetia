@@ -100,7 +100,7 @@ export default function Welcome() {
                                     <div className="more-news">
                                         <Link href="" className={'d-flex'}>
                                             <span>Больше новостей по этой теме</span>
-                                            <img src="img/icons/longarrow.svg" alt=""/>
+                                            <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
                                         </Link>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@ export default function Welcome() {
                         <div className="main-right  ml-32">
                             <div className="d-flex flex-column mb-32 news-sidebar">
                                 <div className="news-item">
-                                    <div className="news-date mb-4 d-flex justify-content-between">
+                                    <div className="news-date d-flex">
                                         <div>
                                             13:45, 8 июля <span
                                             className="news-category">Общество</span>
@@ -122,7 +122,7 @@ export default function Welcome() {
                                 </div>
 
                                 <div className="news-item">
-                                    <div className="news-date mb-4 d-flex justify-content-between">
+                                    <div className="news-date d-flex">
                                         <div>
                                             09:22, 5 июня <span
                                             className="news-category">Образование</span>
@@ -133,7 +133,7 @@ export default function Welcome() {
 
                                 </div>
                                 <div className="news-item">
-                                    <div className="news-date mb-4 d-flex justify-content-between">
+                                    <div className="news-date d-flex">
                                         <div>
                                             11:34, 2 июля<span
                                             className="news-category">Образование</span>
@@ -145,7 +145,7 @@ export default function Welcome() {
 
                                 </div>
                                 <div className="news-item">
-                                    <div className="news-date mb-4 d-flex justify-content-between">
+                                    <div className="news-date d-flex">
                                         <div>
                                             18:15, 29 июня<span
                                             className="news-category">Общество</span>
@@ -157,7 +157,7 @@ export default function Welcome() {
 
                                 </div>
                                 <div className="news-item">
-                                    <div className="news-date mb-4 d-flex justify-content-between">
+                                    <div className="news-date d-flex">
                                         <div>
                                             21:57, 28 июня<span
                                             className="news-category">Общество</span>
@@ -168,7 +168,7 @@ export default function Welcome() {
 
                                 </div>
                                 <div className="news-item">
-                                    <div className="news-date mb-4 d-flex justify-content-between">
+                                    <div className="news-date d-flex">
                                         <div>
                                             13:45, 8 июля <span
                                             className="news-category">Проекты</span>
@@ -183,7 +183,7 @@ export default function Welcome() {
                                 <div className="more-news">
                                     <Link className={'d-flex'}>
                                         <span>Смотреть все</span>
-                                        <img src="img/icons/longarrow.svg" alt=""/>
+                                        <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
                                     </Link>
                                 </div>
                             </div>
@@ -217,69 +217,102 @@ export default function Welcome() {
                     <div className="container d-flex flex-column">
                         <h3 className="mb-48">Векторы развития республики</h3>
                         <div className=" d-flex w-100 mb-32">
-                            <div className="vector-item  mr-32 w-100">
+                            <div className="vector-item  mr-32 w-100 position-relative">
                                 <img className="w-100 vector-image" src="img/content/vectors/image 7.png" alt=""/>
                                 <ul>
                                     <li>
                                         <h3>АПК</h3>
-                                        <img src="img/icons/checkmark.svg" alt=""/>
-                                        <span>Создано более 1000 рабочих мест</span>
+                                        <div className={'d-flex align-items-center'}>
+                                            <img src="img/icons/checkmark.svg" alt=""/>
+                                            <span>Создано более 1000 рабочих мест</span>
+                                        </div>
                                     </li>
-                                    <li>
+                                    <li className={'d-flex align-items-center'}>
                                         <img src="img/icons/checkmark.svg" alt=""/>
                                         <span>На 18% увеличен сбор с/х продуктов</span>
                                     </li>
-                                    <li>
+                                    <li className={'d-flex align-items-center'}>
                                         <img src="img/icons/checkmark.svg" alt=""/>
                                         <span>145 гектаров новых пахатных земель</span>
                                     </li>
                                 </ul>
+                                <div className={'position-absolute'}>
+                                    <Link href="" className={'d-flex'}>
+                                        Подробнее
+                                        <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
+                                    </Link>
+                                </div>
                             </div>
-                            <div className="vector-item w-100">
+                            <div className="vector-item w-100 position-relative">
                                 <img className="w-100 vector-image" src="img/content/vectors/image 7 (1).png" alt=""/>
                                 <ul>
                                     <li>
                                         <h3>Цифровая сфера</h3>
-                                        <img src="img/icons/checkmark.svg" alt=""/>
-                                        <span>Открыт IT-университет “Школа 21”</span>
+                                        <div className={'d-flex align-items-center'}>
+                                            <img src="img/icons/checkmark.svg" alt=""/>
+                                            <span>Открыт IT-университет “Школа 21”</span>
+                                        </div>
                                     </li>
-                                    <li>
+                                    <li className={'d-flex align-items-center'}>
                                         <img src="img/icons/checkmark.svg" alt=""/>
                                         <span>Выпущено более 400 IT-специалистов</span>
                                     </li>
                                 </ul>
+                                <div className={'position-absolute'}>
+                                    <Link href="" className={'d-flex'}>
+                                        Подробнее
+                                        <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
 
                         <div className="d-flex mb-48">
-                            <div className="vector-item w-100 mr-32">
+                            <div className="vector-item w-100 mr-32 position-relative">
                                 <img className="w-100 vector-image" src="img/content/vectors/image 7 (2).png" alt=""/>
                                 <ul>
                                     <li>
                                         <h3>Промышленность</h3>
-                                        <img src="img/icons/checkmark.svg" alt=""/>
-                                        <span>Запущено 3 новых предприятия</span>
+                                        <div className={'d-flex align-items-center'}>
+                                            <img src="img/icons/checkmark.svg" alt=""/>
+                                            <span>Запущено 3 новых предприятия</span>
+                                        </div>
                                     </li>
-                                    <li>
+                                    <li className={'d-flex align-items-center'}>
                                         <img src="img/icons/checkmark.svg" alt=""/>
                                         <span>Создано более 2000 новых рабочих мест</span>
                                     </li>
                                 </ul>
+                                <div className={'position-absolute'}>
+                                    <Link href="" className={'d-flex'}>
+                                        Подробнее
+                                        <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
+                                    </Link>
+                                </div>
                             </div>
-                            <div className="vector-item w-100">
+                            <div className="vector-item w-100 position-relative">
                                 <img className="w-100 vector-image" src="img/content/vectors/image 7 (3).png" alt=""/>
                                 <ul>
                                     <li>
                                         <h3>Туризм</h3>
-                                        <img src="img/icons/checkmark.svg" alt=""/>
-                                        <span>На 20% больше туристов</span>
+                                        <div className={'d-flex align-items-center'}>
+                                            <img src="img/icons/checkmark.svg" alt=""/>
+                                            <span>На 20% больше туристов</span>
+                                        </div>
+
                                     </li>
-                                    <li>
+                                    <li className={'d-flex align-items-center'}>
                                         <img src="img/icons/checkmark.svg" alt=""/>
                                         <span>Более 2 новых туристических зон</span>
                                     </li>
 
                                 </ul>
+                                <div className={'position-absolute'}>
+                                    <Link href="" className={'d-flex'}>
+                                        Подробнее
+                                        <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -289,7 +322,7 @@ export default function Welcome() {
                         <h3>Новости министерств</h3>
                         <div className="filtered-news w-full d-flex mt-40 flex-column">
 
-                            <div className="filter-items">
+                        <div className="filter-items">
                                 <button className="active">Миннац</button>
                                 <button>Министерство Образования</button>
                                 <button>Министерство здравохранения</button>
@@ -309,7 +342,7 @@ export default function Welcome() {
                                                 <h4>Глава республики посетил открытие новой школы</h4>
                                             </Link>
                                         </div>
-                                        <p className="news-date">27 июня <span
+                                        <p className="news-date">13:45, 8 июля<span
                                             className="news-category ml-4">Проекты</span>
                                         </p>
                                     </div>
@@ -324,7 +357,7 @@ export default function Welcome() {
                                                 <h4>НИИ Ингушетии представели новый дрон для сельского хозяйства</h4>
                                             </Link>
                                         </div>
-                                        <p className="news-date">27 июня <span
+                                        <p className="news-date">09:22, 5 июня <span
                                             className="news-category ml-4">Проекты</span>
                                         </p>
                                     </div>
@@ -340,7 +373,7 @@ export default function Welcome() {
                                                 <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
                                             </Link>
                                         </div>
-                                        <p className="news-date">27 июня <span
+                                        <p className="news-date">11:34, 2 июля<span
                                             className="news-category ml-4">Проекты</span>
                                         </p>
                                     </div>
@@ -357,7 +390,7 @@ export default function Welcome() {
                                                 <h4>Глава республики посетил открытие новой школы</h4>
                                             </Link>
                                         </div>
-                                        <p className="news-date">27 июня <span
+                                        <p className="news-date">21:57, 28 июня<span
                                             className="news-category ml-4">Проекты</span>
                                         </p>
                                     </div>
@@ -372,7 +405,7 @@ export default function Welcome() {
                                                 <h4>НИИ Ингушетии представели новый дрон для сельского хозяйства</h4>
                                             </Link>
                                         </div>
-                                        <p className="news-date">27 июня <span
+                                        <p className="news-date">21:57, 27 июня<span
                                             className="news-category ml-4">Проекты</span>
                                         </p>
                                     </div>
@@ -388,7 +421,7 @@ export default function Welcome() {
                                                 <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
                                             </Link>
                                         </div>
-                                        <p className="news-date">27 июня <span
+                                        <p className="news-date">11:57, 26 июня<span
                                             className="news-category ml-4">Проекты</span>
                                         </p>
                                     </div>
@@ -404,7 +437,7 @@ export default function Welcome() {
                                                 <h4>Глава республики посетил открытие новой школы</h4>
                                             </Link>
                                         </div>
-                                        <p className="news-date">27 июня <span
+                                        <p className="news-date">10:07, 26 июня<span
                                             className="news-category ml-4">Проекты</span>
                                         </p>
                                     </div>
@@ -420,7 +453,7 @@ export default function Welcome() {
                                                 <h4>Глава республики посетил открытие новой школы</h4>
                                             </Link>
                                         </div>
-                                        <p className="news-date">27 июня <span
+                                        <p className="news-date">21:15, 25 июня<span
                                             className="news-category ml-4">Проекты</span>
                                         </p>
                                     </div>
@@ -441,7 +474,7 @@ export default function Welcome() {
                                         <h4>МАГАС</h4>
                                         <Link href="" className={'d-flex'}>
                                             Подробнее
-                                            <img src="img/icons/longarrow.svg" alt=""/>
+                                            <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
                                         </Link>
                                     </div>
                                     <div className="municipality-date d-flex flex-column">
@@ -506,7 +539,7 @@ export default function Welcome() {
                                             <h4>Глава республики посетил открытие новой школы</h4>
                                         </Link>
                                     </div>
-                                    <p className="news-date">27 июня <span className="news-category ml-4">Проекты</span>
+                                    <p className="news-date">21:57, 27 июня <span className="news-category ml-3">Проекты</span>
                                     </p>
                                 </div>
                             </div>
@@ -523,7 +556,7 @@ export default function Welcome() {
                                             <h4>НИИ Ингушетии представели новый дрон для сельского хозяйства</h4>
                                         </Link>
                                     </div>
-                                    <p className="news-date">27 июня <span className="news-category ml-4">Проекты</span>
+                                    <p className="news-date">11:12, 27 июня <span className="news-category ml-3">Проекты</span>
                                     </p>
                                 </div>
                             </div>
@@ -541,7 +574,7 @@ export default function Welcome() {
                                             <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
                                         </Link>
                                     </div>
-                                    <p className="news-date">27 июня <span className="news-category ml-4">Проекты</span>
+                                    <p className="news-date">10:00, 27 июня <span className="news-category ml-3">Проекты</span>
                                     </p>
                                 </div>
                             </div>
@@ -560,7 +593,7 @@ export default function Welcome() {
                                             <h4>Глава республики посетил открытие новой школы</h4>
                                         </Link>
                                     </div>
-                                    <p className="news-date">27 июня <span className="news-category ml-4">Проекты</span>
+                                    <p className="news-date">22:35,26 июня <span className="news-category ml-3">Проекты</span>
                                     </p>
                                 </div>
                             </div>
@@ -577,7 +610,7 @@ export default function Welcome() {
                                             <h4>НИИ Ингушетии представели новый дрон для сельского хозяйства</h4>
                                         </Link>
                                     </div>
-                                    <p className="news-date">27 июня <span className="news-category ml-4">Проекты</span>
+                                    <p className="news-date">21:16, 26 июня <span className="news-category ml-3">Проекты</span>
                                     </p>
                                 </div>
                             </div>
@@ -595,7 +628,7 @@ export default function Welcome() {
                                             <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
                                         </Link>
                                     </div>
-                                    <p className="news-date">27 июня <span className="news-category ml-4">Проекты</span>
+                                    <p className="news-date">19:00, 26 июня <span className="news-category ml-3">Проекты</span>
                                     </p>
                                 </div>
                             </div>
@@ -613,7 +646,7 @@ export default function Welcome() {
                                             <h4>Глава республики посетил открытие новой школы</h4>
                                         </Link>
                                     </div>
-                                    <p className="news-date">27 июня <span className="news-category ml-4">Проекты</span>
+                                    <p className="news-date">18:33, 26 июня <span className="news-category ml-3">Проекты</span>
                                     </p>
                                 </div>
                             </div>
@@ -631,7 +664,7 @@ export default function Welcome() {
                                             <h4>Глава республики посетил открытие новой школы</h4>
                                         </Link>
                                     </div>
-                                    <p className="news-date">27 июня <span className="news-category ml-4">Проекты</span>
+                                    <p className="news-date">11:17, 25 июня <span className="news-category ml-3">Проекты</span>
                                     </p>
                                 </div>
                             </div>
@@ -649,9 +682,7 @@ export default function Welcome() {
                                 </Link>
                                 <span>Отчеты</span>
                             </div>
-                            <Link href="">
-                                <img src="img/icons/arrow grey.svg" alt=""/>
-                            </Link>
+                            <img src="img/icons/arrow grey.svg" alt=""/>
                         </div>
                         <div className="document-item d-flex justify-content-between w-100 aligh-items-center">
                             <div>
@@ -660,9 +691,7 @@ export default function Welcome() {
                                 </Link>
                                 <span>Акты</span>
                             </div>
-                            <Link href="">
-                                <img src="img/icons/arrow grey.svg" alt=""/>
-                            </Link>
+                            <img src="img/icons/arrow grey.svg" alt=""/>
                         </div>
                         <div className="document-item d-flex justify-content-between w-100 aligh-items-center">
                             <div>
@@ -671,9 +700,7 @@ export default function Welcome() {
                                 </Link>
                                 <span>Законы</span>
                             </div>
-                            <Link href="">
-                                <img src="img/icons/arrow grey.svg" alt=""/>
-                            </Link>
+                            <img src="img/icons/arrow grey.svg" alt=""/>
                         </div>
                         <div className="document-item d-flex justify-content-between w-100 aligh-items-center">
                             <div>
@@ -682,15 +709,13 @@ export default function Welcome() {
                                 </Link>
                                 <span>Отчеты</span>
                             </div>
-                            <Link href="">
-                                <img src="img/icons/arrow grey.svg" alt=""/>
-                            </Link>
+                            <img src="img/icons/arrow grey.svg" alt=""/>
                         </div>
 
                         <div className="more-news">
-                            <Link href="">
+                            <Link href="" className={'d-flex align-items-center'}>
                                 <span> Все документы</span>
-                                <img src="img/icons/longarrow.svg" alt=""/>
+                                <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
                             </Link>
                         </div>
                     </div>
@@ -737,8 +762,13 @@ export default function Welcome() {
                                 </Link>
                             </div>
                         </div>
+                    </div>
 
-
+                    <div className="container mt-40">
+                        <div className="resource-arrows d-flex align-items-center">
+                            <button><img src="../../img/icons/arrow back.svg" alt=""/></button>
+                            <button className={'pl-20'}><img src="../../img/icons/arrow next .svg" alt=""/></button>
+                        </div>
                     </div>
                 </section>
 

@@ -435,3 +435,9 @@ iframe {
     font-size: 16px;
     color: #6C6C6C;
 }
+
+.image-desc {
+    font-size: 13px !important;
+    font-weight: 400;
+    color: #6C6C6C;
+}

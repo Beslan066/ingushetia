@@ -1,11 +1,12 @@
 import Guest from "@/Layouts/GuestLayout.jsx";
+import Filter from "@/Components/Filter.jsx";
 
 export default function News() {
     return (
         <Guest>
             <main className="mt-40">
                 <div className="container">
-                    <h2 className="mb-40">Новости</h2>
+                    <h2 className="mb-32">Новости</h2>
                 </div>
                 <div className="container d-flex w-full  col-xxl-12 news-page">
                     <div className="main-left col-xxl-9">
@@ -34,37 +35,7 @@ export default function News() {
 
                             <div className="filtered-news w-full d-flex mt-40 flex-column">
 
-                                <div className="filter-items d-flex justify-content-between aligh-items-center">
-                                    <div className="d-flex aligh-items-center ">
-                                        <button className="active">Общество</button>
-                                        <button>Образование</button>
-                                        <button>Экономика</button>
-                                        <button>Наука</button>
-                                        <button>Спорт</button>
-                                        <button>Туризм</button>
-                                    </div>
-                                    <div className="filter-icon-button">
-                                        <button>
-                                            <img src="img/icons/Filter.svg" alt="Ingushetia news filter"/>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div className="filter-body d-flex aligh-items-center mb-24">
-                                    <div className="d-flex aligh-items-center">
-                                        <select name="" id="" placeholder="Период, с" className="mr-12">
-                                            <option value="">Период, с</option>
-                                        </select>
-                                        <p>-</p>
-                                        <select name="" id="" placeholder="Период, до" className="mr-12">
-                                            <option value="">Период, до</option>
-                                        </select>
-                                    </div>
-                                    <div className="d-flex aligh-items-center">
-                                        <button className="mr-12">Применить</button>
-                                        <button>Очистить</button>
-                                    </div>
-                                </div>
+                                <Filter />
 
                                 <div className="d-flex flex-wrap">
                                     <div className="d-flex news-row news-image-row">
@@ -137,6 +108,9 @@ export default function News() {
                                                 </a>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div className={'d-flex flex-wrap'}>
                                         <div className="filtered-news-item col-4">
                                             <div className="news-text">
                                                 <p className="news-date">27 июня <span
@@ -176,10 +150,10 @@ export default function News() {
                         </div>
                     </div>
                     <div className="main-right  ml-32">
-                        <div className="d-flex flex-column mb-32 news-sidebar">
+                        <div className="d-flex flex-column mb-32 news-sidebar p-3">
                             <h4>Популярное</h4>
                             <div className="news-item">
-                                <div className="news-date mb-4 d-flex justify-content-between">
+                                <div className="news-date d-flex ">
                                     <div>
                                         09:22, 5 июня <span
                                         className="news-category">Образование</span>
@@ -190,7 +164,7 @@ export default function News() {
                             </div>
 
                             <div className="news-item">
-                                <div className="news-date mb-4 d-flex justify-content-between">
+                                <div className="news-date d-flex">
                                     <div>
                                         11:34, 2 июля<span
                                         className="news-category">Образование</span>
@@ -202,9 +176,9 @@ export default function News() {
 
                             </div>
                             <div className="news-item">
-                                <div className="news-date mb-4 d-flex justify-content-between">
+                                <div className="news-date d-flex ">
                                     <div>
-                                        18:15, 29 июня<span
+                                    18:15, 29 июня<span
                                         className="news-category">Общество</span>
                                     </div>
                                 </div>
@@ -214,7 +188,7 @@ export default function News() {
 
                             </div>
                             <div className="news-item">
-                                <div className="news-date mb-4 d-flex justify-content-between">
+                                <div className="news-date d-flex ">
                                     <div>
                                         21:57, 28 июня<span
                                         className="news-category">Общество</span>
@@ -225,7 +199,7 @@ export default function News() {
 
                             </div>
                             <div className="news-item">
-                                <div className="news-date mb-4 d-flex justify-content-between">
+                                <div className="news-date d-flex ">
                                     <div>
                                         13:45, 8 июля <span
                                         className="news-category">Проекты</span>
@@ -240,7 +214,7 @@ export default function News() {
                             <div className="more-news">
                                 <a href="" className={'d-flex'}>
                                     <span>Смотреть все</span>
-                                    <img src="img/icons/longarrow.svg" alt=""/>
+                                    <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
                                 </a>
                             </div>
                         </div>

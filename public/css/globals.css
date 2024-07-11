@@ -242,7 +242,7 @@ ul {
 }
 
 .news-date span {
-  margin-left: 16px;
+  margin-left: 12px;
 }
 
 
@@ -285,7 +285,14 @@ ul {
 
 .d-flex.flex-column.mb-32.news-sidebar {
   height: 670px;
-  padding: 20px 16px;
+}
+
+.main-right .news-item .news-date {
+    margin-bottom: 12px;
+}
+
+.main-right .news-item .news-date img {
+    margin-left: 16px;
 }
 
 .news-item a:hover {
@@ -450,12 +457,27 @@ main .filtered-news-item h4 {
 
 .vector-item {
   background-color: #F6F6F6;
+    height: 448px;
+}
 
+.vector-item span {
+    padding-left: 9px;
 }
 
 .vector-image{
   height: auto;
   max-height: 160px;
+}
+
+.vector-item .position-absolute {
+    bottom: 32px;
+    padding-left: 32px;
+
+
+}
+
+.vector-item a {
+    color: #07A267 !important;
 }
 
 .vector-item ul {
@@ -466,6 +488,7 @@ main .filtered-news-item h4 {
 .vector-item li {
   font-size: 16px;
   list-style: none;
+    margin-bottom: 16px;
 }
 
 .vector-item span {
@@ -539,13 +562,26 @@ h3 {
 .documents h4 {
   font-weight: 600;
   font-size: 20px;
+    margin-bottom: unset !important;
+}
+
+.documents span {
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .document-item {
   background-color: #f6f6f6;
   padding: 20px 24px 20px 24px;
   margin-bottom: 18px;
-    height: 88px;
+  height: 88px;
+}
+
+.document-item:hover {
+    background-color: #B3B3B3;
+    cursor: pointer;
+    animation: slideUp ease-out;
+
 }
 
 .document-item a {
@@ -553,9 +589,6 @@ h3 {
   color: #000;
 }
 
-.document-item a:hover {
-  color: #07A267;
-}
 
 
 .document-item span {
@@ -565,6 +598,10 @@ h3 {
 .resource-item {
   background-color: #DFDFDF;
   max-width: 23%;
+}
+
+.resource-item a {
+    color: #07A267;
 }
 
 .resource-item h3 {
@@ -642,6 +679,19 @@ section.municipalities.mb-32 {
 }
 .load-news {
   margin-bottom: 20px;
+  width: 100%;
+  background-color: #D6F7EB;
+  color: #055335;
+  padding: 0 24px 0 24px !important;
+    height: 54px;
+}
+
+.news-page .filtered-news-item h4 {
+    font-weight: 400;
+}
+
+.news-page  .main-right .news-item .news-date {
+    margin-bottom: 8px;
 }
 
 .gallery-icon {
@@ -661,6 +711,21 @@ section.municipalities.mb-32 {
   margin-bottom: 20px;
 }
 
+.filter-body {
+    display: none;
+}
+
+.filter-body.active {
+    display: flex;
+    animation:  0.3s ease-out;
+}
+
+.filter-body .tire {
+    height: 2px;
+    margin-top: 22px;
+    margin-right: 12px;
+}
+
 .filter-body select{
   width: 120px;
   height: 48px;
@@ -668,7 +733,6 @@ section.municipalities.mb-32 {
   background-color: #F6F6F6;
   color: #6C6C6C;
   border: none;
-
 }
 
 .filter-body option {

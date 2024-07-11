@@ -54,7 +54,7 @@ export default function Region() {
         <Guest>
             <main className="mt-40">
                 <div className="container">
-                    <h2>О республике</h2>
+                    <h2 className={'mb-32'}>О республике</h2>
                 </div>
                 <div className="container d-flex w-full  col-xxl-12 news-page">
                     <div className="main-left col-xxl-9">
