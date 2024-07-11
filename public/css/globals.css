@@ -494,6 +494,9 @@ main .filtered-news-item h4 {
   font-weight: 600;
     font-size: 28px !important;
 }
+h3 {
+    font-weight: 600 !important;
+}
 
 .municipality-date {
   color: #fff;
