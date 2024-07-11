@@ -163,6 +163,7 @@ header {
 .topmenu > li {
   display: inline-block;
   position: relative;
+    margin-bottom: unset !important;
 }
 
 .topmenu > li:last-child {
@@ -335,7 +336,7 @@ main .filtered-news-item {
 }
 
 main .filtered-news-item h4 {
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .filtered-news-item .news-image{
@@ -562,7 +563,7 @@ h3 {
 }
 
 .resource-item h3 {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .section-title {
