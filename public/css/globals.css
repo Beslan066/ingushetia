@@ -492,6 +492,7 @@ main .filtered-news-item h4 {
 
 .municipalities h3 {
   font-weight: 600;
+    font-size: 28px !important;
 }
 
 .municipality-date {

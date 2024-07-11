@@ -215,7 +215,7 @@ export default function Welcome() {
                 </main>
                 <section className="ingushetia-vectors mt-32">
                     <div className="container d-flex flex-column">
-                        <h2 className="mb-48">Векторы развития республики</h2>
+                        <h3 className="mb-48">Векторы развития республики</h3>
                         <div className=" d-flex w-100 mb-32">
                             <div className="vector-item  mr-32 w-100">
                                 <img className="w-100 vector-image" src="img/content/vectors/image 7.png" alt=""/>
@@ -286,7 +286,7 @@ export default function Welcome() {
                 </section>
                 <section className="home-media">
                     <div className="container d-flex flex-column">
-                        <h2>Новости министерств</h2>
+                        <h3>Новости министерств</h3>
                         <div className="filtered-news w-full d-flex mt-40 flex-column">
 
                             <div className="filter-items">
@@ -490,7 +490,7 @@ export default function Welcome() {
 
                 <section className="home-media">
                     <div className="container d-flex flex-column">
-                        <h2 className={'mb-24'}>Фото и видеорепортажи</h2>
+                        <h3 className={'mb-24'}>Фото и видеорепортажи</h3>
                         <div className="d-flex justify-content-between flex-wrap">
                             <div className="filtered-news-item col-4 ">
                                 <div className="news-image position-relative d-flex flex-column align-items-center">
