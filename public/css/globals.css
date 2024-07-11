@@ -543,8 +543,9 @@ h3 {
 
 .document-item {
   background-color: #f6f6f6;
-  padding: 32px;
+  padding: 20px 24px 20px 24px;
   margin-bottom: 18px;
+    height: 88px;
 }
 
 .document-item a {
