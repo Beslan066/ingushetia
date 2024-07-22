@@ -1,20 +1,47 @@
-import { Link, Head } from '@inertiajs/react';
+import {Link, Head, usePage} from '@inertiajs/react';
 import Guest from "@/Layouts/GuestLayout.jsx";
 import Modal from "@/Components/Modal.jsx";
 import React from 'react'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import HomeNewsSidebar from "@/Components/Home/HomeNewsSidebar.jsx";
+import { format, parseISO } from 'date-fns';
+import { ru } from 'date-fns/locale';
 export default function Welcome() {
 
-    const [modal,setModal] = React.useState(false);
 
-    useEffect(() => {
-        if (modal) {
-            document.body.classList.add('fixed-body')
-        }else {
-            document.body.classList.remove('fixed-body')
-        }
-    })
+    let {posts, categories} = usePage().props;
+
+// Состояние для выбранной категории
+    const [selectedCategory, setSelectedCategory] = useState(null);
+
+    // Функция для обработки клика по категории
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+    };
+
+    // Функция для обработки клика по кнопке "Все новости"
+    const handleAllNewsClick = () => {
+        setSelectedCategory(null);
+    };
+
+    // Фильтрация постов по выбранной категории
+    const filteredPosts = selectedCategory
+        ? posts.filter(post => post.category_id === selectedCategory.id)
+        : posts;
+
+
+    // Ограничение вывода новостей до 3 постов
+    const limitedPosts = filteredPosts.slice(0, 3);
+
+    // Функция для форматирования даты
+    const formatDate = (dateString) => {
+        const date = parseISO(dateString);
+        return format(date, 'HH:mm, d MMMM', { locale: ru });
+    };
+
     return (
+
+
         <Guest>
             <div>
                 <main className="mt-40">
@@ -45,63 +72,43 @@ export default function Welcome() {
                                 </div>
 
                                 <div className="filtered-news w-full d-flex mt-40 flex-column">
-
                                     <div className="filter-items">
-                                        <button className="active">Общество</button>
-                                        <button>Образование</button>
-                                        <button>Экономика</button>
-                                        <button>Наука</button>
-                                        <button>Спорт</button>
-                                        <button>Туризм</button>
+                                        <button
+                                            className={`filter-button ${selectedCategory === null ? 'active' : ''}`}
+                                            onClick={handleAllNewsClick}
+                                        >
+                                            Все новости
+                                        </button>
+                                        {categories.map((category) => (
+                                            <button
+                                                key={category.id}
+                                                className={`filter-button ${selectedCategory && selectedCategory.id === category.id ? 'active' : ''}`}
+                                                onClick={() => handleCategoryClick(category)}
+                                            >
+                                                {category.title}
+                                            </button>
+                                        ))}
                                     </div>
 
                                     <div className="d-flex flex-wrap">
-                                        <div className="filtered-news-item col-4">
-                                            <div className="news-image">
-                                                <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
-                                            </div>
+                                        {limitedPosts.map((post) => (
+                                            <div key={post.id} className="filtered-news-item col-4">
+                                                <div className="news-image">
+                                                    <img src={`http://127.0.0.1:8000/storage/${post.image_main}`} alt=""
+                                                         className="w-100 h-100"/>
+                                                </div>
 
-                                            <div className="news-text">
-                                                <p className="news-date">09:22, 5 июня<span
-                                                    className="news-category ml-4">Проекты</span></p>
-                                                <Link href="">
-                                                    <h4>Глава республики посетил открытие новой школы</h4>
-                                                </Link>
+                                                <div className="news-text">
+                                                    <p className="news-date">
+                                                        {formatDate(post.published_at)} <span
+                                                        className="news-category ml-4">{post.category.title}</span>
+                                                    </p>
+                                                    <Link href={post.link}>
+                                                        <h4>{post.title}</h4>
+                                                    </Link>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="filtered-news-item col-4">
-                                            <div className="news-image">
-                                                <img className="w-100 h-100" src="img/content/image 7 (2).png" alt=""/>
-                                            </div>
-                                            <div className="news-text">
-                                                <p className="news-date">21:57, 28 июня<span
-                                                    className="news-category ml-4">Проекты</span></p>
-                                                <Link href="">
-                                                    <h4>НИИ Ингушетии представели новый дрон для сельского
-                                                        хозяйства</h4>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                        <div className="filtered-news-item col-4">
-                                            <div className="news-image">
-                                                <img className="w-100" src="img/content/image 7 (3).png" alt=""/>
-                                            </div>
-
-                                            <div className="news-text">
-                                                <p className="news-date">13:22, 28 июня<span
-                                                    className="news-category ml-4">Проекты</span></p>
-                                                <Link href="">
-                                                    <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="more-news">
-                                        <Link href="" className={'d-flex'}>
-                                            <span>Больше новостей по этой теме</span>
-                                            <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
-                                        </Link>
+                                        ))}
                                     </div>
                                 </div>
 
@@ -109,79 +116,25 @@ export default function Welcome() {
                         </div>
                         <div className="main-right  ml-32">
                             <div className="d-flex flex-column mb-32 news-sidebar">
-                                <div className="news-item">
-                                    <div className="news-date d-flex">
-                                        <div>
-                                            13:45, 8 июля <span
-                                            className="news-category">Общество</span>
-                                        </div>
-                                        <img src="img/icons/video-icon.svg" alt=""/>
-                                    </div>
-                                    <h2 onClick={() => setModal(true)}>М-А. Калиматов проверил ход восстановительных
-                                        работ в Карабулаке</h2>
-                                </div>
 
-                                <div className="news-item">
-                                    <div className="news-date d-flex">
-                                        <div>
-                                            09:22, 5 июня <span
-                                            className="news-category">Образование</span>
-                                        </div>
-                                    </div>
-                                    <h2 onClick={() => setModal(true)}>В с.п. Сурхахи открылась новая школа на 320
-                                        мест</h2>
-
-                                </div>
-                                <div className="news-item">
-                                    <div className="news-date d-flex">
-                                        <div>
-                                            11:34, 2 июля<span
-                                            className="news-category">Образование</span>
-                                        </div>
-                                        <img src="img/icons/video-icon.svg" alt=""/>
-                                    </div>
-                                    <h2 onClick={() => setModal(true)}>В Яндаре по программе «Развитие образования»
-                                        построили новый детский сад-ясли</h2>
-
-                                </div>
-                                <div className="news-item">
-                                    <div className="news-date d-flex">
-                                        <div>
-                                            18:15, 29 июня<span
-                                            className="news-category">Общество</span>
-                                        </div>
-                                    </div>
-
-                                    <h2 onClick={() => setModal(true)}>Ингушетия снова в тройке лидеров по ожидаемой
-                                        продолжительности жизни</h2>
-
-                                </div>
-                                <div className="news-item">
-                                    <div className="news-date d-flex">
-                                        <div>
-                                            21:57, 28 июня<span
-                                            className="news-category">Общество</span>
-                                        </div>
-                                    </div>
-                                    <h2 onClick={() => setModal(true)}>М-А. Калиматов проверил ход восстановительных
-                                        работ в Карабулаке</h2>
-
-                                </div>
-                                <div className="news-item">
-                                    <div className="news-date d-flex">
-                                        <div>
-                                            13:45, 8 июля <span
-                                            className="news-category">Проекты</span>
-                                        </div>
-                                        <img src="img/icons/video-icon.svg" alt=""/>
-                                    </div>
-                                    <h2 onClick={() => setModal(true)}>Ингушетия снова в тройке лидеров по ожидаемой
-                                        продолжительности жизни</h2>
-
-                                </div>
+                                {posts.map((post) => {
+                                    return (
+                                        <HomeNewsSidebar
+                                            key={post.id}
+                                            title={post.title}
+                                            image={post.image_main}
+                                            lead={post.lead}
+                                            content={post.content}
+                                            user={post.user}
+                                            agency={post.agency}
+                                            category={post.category.title}
+                                            published={post.published_at}
+                                        />
+                                    );
+                                })}
 
                                 <div className="more-news">
-                                    <Link className={'d-flex'}>
+                                    <Link className={'d-flex'} href={route('news.index')}>
                                         <span>Смотреть все</span>
                                         <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
                                     </Link>
@@ -774,7 +727,7 @@ export default function Welcome() {
 
             </div>
 
-            <Modal active={modal} onClose={() => setModal(false)}/>
+
         </Guest>
     );
 }

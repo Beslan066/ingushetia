@@ -52,7 +52,7 @@ class StoreRequest extends FormRequest
             'published_at.required' => 'Укажите дату публикации',
             'published_at.date' => 'Некорректный формат даты',
             'user_id.required' => 'Ошибка при определении пользователя',
-            'agensy_id.required' => 'Ошибка при определении организации',
+            'agency_id.required' => 'Ошибка при определении организации',
         ];
     }
 }

@@ -2,6 +2,7 @@ import FilterIcon from "@/Components/FilterIcon.jsx";
 import CloseIcon from "@/Components/CloseIcon.jsx";
 
 import React from "react";
+import {usePage} from "@inertiajs/react";
 export default function Filter() {
 
     const [filter, setFilter] = React.useState(false);
@@ -9,6 +10,7 @@ export default function Filter() {
     const handleFilterIconClick = () => {
         setFilter(!filter);
     };
+
 
 
     return(

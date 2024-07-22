@@ -1,6 +1,7 @@
 import "../../../public/css/modal.css";
 import React from "react";
-export default function Modal({ active, onClose }) {
+export default function Modal({ active, onClose, title, image, content, category, date }) {
+
 
     return (
         <div className={`d-flex justify-content-center modal-section`}>
@@ -11,7 +12,7 @@ export default function Modal({ active, onClose }) {
                         <span className="ml-12"><img className={'next-icon'} src="../../img/icons/no.svg" alt=""/></span>
                         <a className="ml-12" href="">Новости </a>
                         <span className="ml-12"><img className={'next-icon'} src="../../img/icons/no.svg" alt=""/></span>
-                        <a className="ml-12" href="">Новый современный спортивный комплекс появится в Ингушетии в 2025 году</a>
+                        <a className="ml-12" href="">{title}</a>
                     </p>
                     <div>
                         <button className="mr-12"><img src="img/icons/Print.png" alt="" /></button>
@@ -21,60 +22,23 @@ export default function Modal({ active, onClose }) {
 
                 <div className="modal-news-content mt-40 mb-24">
                     <div className="modal-news-date">
-                        <p className="news-date text-black mb-4">27 июня 13:55<span className="news-category">Проекты</span></p>
+                        <p className="news-date text-black mb-4">{date}<span className="news-category">{category}</span></p>
                     </div>
 
                     <div className="modal-news-title">
-                        <h2>Новый современный спортивный комплекс появится в Ингушетии в 2025 году</h2>
+                        <h2>{title}</h2>
                     </div>
 
                     <div className="modal-news-image d-flex flex-column">
-                        <img className="w-100" src="img/6.png" alt="" />
+                        <img className="w-100" src={`http://127.0.0.1:8000/storage/${image}`} alt="" />
                         <div className="image-info d-flex aligh-items-center justify-content-between mt-2">
                             <p className="image-author">Фото: Beslan Shamaev</p>
                             <p className="image-desc">План нового спортивного комплекса в Гамурзиево</p>
                         </div>
                     </div>
 
-                    <div className="modal-news-text mt-32">
-                        <p>В Гамурзиевском административном округе Назрани планируют построить новый физкультурно-оздоровительный комплекс с бассейном.
-                            Реализация объекта стоимостью более 300 млн рублей запланирована на 2025-2026 годы.
-                        </p>
-                        <p>
-                            Спортивное сооружение возведут на благоустроенной территории сквера через реку Назранка в рамках национального проекта «Демография»,
-                            реализуемого по решению Президента страны.
-                        </p>
+                    <div className="modal-news-text mt-32" dangerouslySetInnerHTML={{ __html: content }}>
 
-                        <div className="w-100 d-flex justify-content-center aligh-items-center mb-24">
-                            <quote className="quote w-50 d-flex">
-                                <img src="img/icons/citat.png" alt="" style={{marginRight: '10px'}}/>
-                                К 2025-2026 году мы планируем полностью ввести в эксплуатацию физкультурно-оздоровительный комплекс в Гамурзиево. Мы давно искали средства для запуска такого комплекса и вот наши надежды оправдались.
-
-                            </quote>
-                        </div>
-
-                        <p>
-                            Отметим, что территория ранее участвовала в программе «Формирование комфортной городской среды», а еще раньше здесь была установлена многофункциональная площадка.
-                        </p>
-
-                        <p>
-                            Здание комплекса будет состоять из трех этажей. На первом этаже разместят бассейн, зал, который предусмотрен для нескольких видов спорта: борьба, бокс, тяжелая атлетика,
-                            игровые виды спорта. На втором этаже обустроят тренажерный зал, раздевалки, душевые, санузлы и административные помещения.
-                        </p>
-
-                        <div className="w-100 d-flex justify-content-center aligh-items-center mb-24">
-                            <div className="col-10 d-flex flex-column">
-                                <img className="w-100" src="img/7.png" alt="" />
-                                <div className="image-info d-flex aligh-items-center justify-content-between mt-2">
-                                    <p className="image-author">Фото: Beslan Shamaev</p>
-                                    <p className="image-desc">План нового спортивного комплекса в Гамурзиево</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <p>
-                            Наш регион всегда был спортивным, поэтому перспективы у проекта явно хорошие. Большая часть наших земляков проживает в сельской местности, там довольно много молодежи, и они тоже хотят заниматься физкультурой и спортом. Со строительством ФОКа мы получаем бонусы в виде спортивного комплекса с высокой единовременной пропускной способностью до 130 человек за сессию, новые рабочие места, налогооблагаемую базу, пространство для работы субъектов МСП, и, конечно же, новый центр притяжения для жителей Гамурзиево, что очень важно для включения населения в спорт, отметчал ранее Глава региона Махмуд-Али Калиматов.
-                        </p>
                     </div>
 
 

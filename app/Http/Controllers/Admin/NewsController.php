@@ -51,12 +51,9 @@ class NewsController extends Controller
     {
         $data = $request->validated();
 
-        if ($request->hasFile('image_main')) {
-            $image = $request->file('image_main');
-
-            $imagePath = $image->store('images'); // Сохранить изображение в storage/app/public/images
-
-            $data['image_main'] = $imagePath;
+        if (isset($data['image_main'])) {
+            $path = Storage::put('images', $data['image_main']);
+            $data['image_main'] = str_replace('images/', '', $path);
         }
 
 
