@@ -53,7 +53,6 @@ class NewsController extends Controller
 
         if (isset($data['image_main'])) {
             $path = Storage::put('images', $data['image_main']);
-            $data['image_main'] = str_replace('images/', '', $path);
         }
 
 

@@ -90,6 +90,17 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
 
     });
 
+    Route::group(['namespace' => 'Document', 'prefix' => 'admin'], function () {
+        Route::get('/documents', [App\Http\Controllers\Admin\DocumentController::class, 'index'])->name('admin.documents.index');
+
+        Route::get('/documents/create', [App\Http\Controllers\Admin\DocumentController::class, 'create'])->name('admin.documents.create');
+        Route::post('/documents/store', [App\Http\Controllers\Admin\DocumentController::class, 'store'])->name('admin.documents.store');
+        Route::get('/documents/{document}/edit', [App\Http\Controllers\Admin\DocumentController::class, 'edit'])->name('admin.documents.edit');
+        Route::patch('/documents/{document}', [App\Http\Controllers\Admin\DocumentController::class, 'update'])->name('admin.documents.update');
+        Route::delete('/documents/{document}', [App\Http\Controllers\Admin\DocumentController::class, 'destroy'])->name('admin.documents.delete');
+
+    });
+
     Route::group(['namespace' => 'Page', 'prefix' => 'admin'], function () {
         Route::get('/pages', [App\Http\Controllers\Admin\PageController::class, 'index'])->name('admin.page.index');
 

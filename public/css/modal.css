@@ -3,10 +3,10 @@
 .main-modal {
     display: none;
     position: fixed;
-    top: 138px;
     left: 50%;
     transform: translateX(-50%);
     width: 60%;
+    bottom: 1px;
     height: 90%; /* Установите фиксированную высоту */
     overflow-y: auto; /* Добавьте вертикальную прокрутку */
     background: #fff;
@@ -17,6 +17,7 @@
 .main-modal.active {
     display: block;
     animation: slideUp 0.5s ease-out;  /* Добавляем анимацию */
+    position: fixed;
 }
 
 .modal-content {
@@ -65,6 +66,7 @@
 
 .modal-head  a {
     color: #000;
+    max-width: 800px;
 }
 
 .modal-head button {

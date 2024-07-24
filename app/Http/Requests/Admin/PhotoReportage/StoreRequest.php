@@ -23,8 +23,8 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'content' => 'required',
-            'image_main' => 'nullable',
+            'content' => 'nullable',
+            'image_main' => 'required',
             'slides' => 'nullable|array',
             'user_id' => 'required',
             'agency_id' => 'required',

@@ -269,7 +269,7 @@
                     <li><a href="{{route('admin.news.index')}}" class=" waves-effect"><i class="bx bx-news"></i><span>Новости</span></a></li>
                     <li><a href="{{route('admin.newsIng.index')}}" class=" waves-effect"><i class="bx bx-globe"></i><span>Переводы</span></a></li>
 
-                    <li><a href="calendar.html" class=" waves-effect"><i class="bx bx-calendar"></i><span>План мероприятий</span></a></li>
+                    <li><a href="{{route('admin.documents.index')}}" class=" waves-effect"><i class="bx bx-file"></i><span>Документы</span></a></li>
 
                     <li><a href="{{route('admin.photoReportage.index')}}" class=" waves-effect"><i class="bx bx-news"></i><span>Фоторепортажи</span></a></li>
                     <li><a href="calendar.html" class=" waves-effect"><i class="bx bx-video"></i><span>Видео</span></a></li>

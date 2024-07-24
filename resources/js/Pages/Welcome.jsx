@@ -39,6 +39,7 @@ export default function Welcome() {
         return format(date, 'HH:mm, d MMMM', { locale: ru });
     };
 
+    const baseUrl = import.meta.env.VITE_APP_URL;
     return (
 
 
@@ -94,7 +95,7 @@ export default function Welcome() {
                                         {limitedPosts.map((post) => (
                                             <div key={post.id} className="filtered-news-item col-4">
                                                 <div className="news-image">
-                                                    <img src={`http://127.0.0.1:8000/storage/${post.image_main}`} alt=""
+                                                    <img src={`${baseUrl}/storage/${post.image_main}`} alt=""
                                                          className="w-100 h-100"/>
                                                 </div>
 
@@ -109,6 +110,13 @@ export default function Welcome() {
                                                 </div>
                                             </div>
                                         ))}
+                                    </div>
+
+                                    <div className="more-news">
+                                        <Link href={route('news.index')} className={'d-flex'}>
+                                            <span>Больше новостей по этой теме</span>
+                                            <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
+                                        </Link>
                                     </div>
                                 </div>
 

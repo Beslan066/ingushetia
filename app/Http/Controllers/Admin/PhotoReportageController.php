@@ -68,6 +68,7 @@ class PhotoReportageController extends Controller
             $data['image_main'] = $imageMainPath;
         }
 
+
         $news = PhotoReportage::create([
             'title' => $request->title,
             'user_id' => $request->user_id,
