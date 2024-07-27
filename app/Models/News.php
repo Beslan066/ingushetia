@@ -21,7 +21,9 @@ class News extends Model
         'category_id',
         'user_id',
         'published_at',
-        'agency_id'
+        'main_material',
+        'agency_id',
+        'views'
     ];
 
     public function translate()
@@ -42,6 +44,11 @@ class News extends Model
     public function agency()
     {
         return $this->belongsTo(Agency::class, 'agency_id', 'id');
+    }
+
+    public function incrementViews()
+    {
+        $this->increment('views');
     }
 
 

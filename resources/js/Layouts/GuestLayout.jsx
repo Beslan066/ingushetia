@@ -28,7 +28,6 @@ export default function Guest({ children }) {
                                 <ul className="submenu">
                                     <li><Link href="">Глава Республики</Link></li>
                                     <li><Link href="/pravitelstvo">Правительство</Link></li>
-                                    <li><Link href="">Парламент</Link></li>
                                     <li><Link href="">Федеральные органы власти</Link></li>
                                 </ul>
                             </li>

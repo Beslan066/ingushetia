@@ -68,17 +68,6 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
 
     });
 
-    Route::group(['namespace' => 'Event', 'prefix' => 'admin'], function () {
-        Route::get('/events', [App\Http\Controllers\Admin\EventController::class, 'index'])->name('admin.events.index');
-        Route::get('/events/create', [App\Http\Controllers\Admin\EventController::class, 'create'])->name('admin.events.create');
-        Route::post('/events/store', [App\Http\Controllers\Admin\EventController::class, 'store'])->name('admin.events.store');
-        Route::get('/events/{event}/edit', [App\Http\Controllers\Admin\EventController::class, 'edit'])->name('admin.events.edit');
-        Route::patch('/events/{event}', [App\Http\Controllers\Admin\EventController::class, 'update'])->name('admin.events.update');
-        Route::delete('/events/{event}', [App\Http\Controllers\Admin\EventController::class, 'destroy'])->name('admin.events.delete');
-
-    });
-
-
     Route::group(['namespace' => 'Category', 'prefix' => 'admin'], function () {
         Route::get('/categories', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('admin.categories.index');
 

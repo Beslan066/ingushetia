@@ -55,6 +55,12 @@ class NewsController extends Controller
             $path = Storage::put('images', $data['image_main']);
         }
 
+        // Сохранение пути к изображению в базе данных
+        $data['image_main'] = $path ?? null;
+
+        // Обработка значения чекбокса
+        $data['main_material'] = $request->has('main_material') ? 1 : 0;
+
 
         $news = News::create($data);
 

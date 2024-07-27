@@ -15,16 +15,25 @@
                                 <label for="">Заголовок</label>
                                 <input class="form-control form-control-lg mb-3" type="text" placeholder="Введите заголовок" name="title">
                             </div>
+                            @error('title')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
 
                             <div class="form-group w-50">
                                 <label for="exampleFormControlTextarea1">Лид новости</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 101px;"
                                           placeholder="Введите лид" name="lead"></textarea>
                             </div>
+                            @error('lead')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
 
                             <div class="form-group w-50">
                                 <textarea id="summernote" placeholder="Введите что-нибудь" name="content"></textarea>
                             </div>
+                            @error('content')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
 
                             <div class="row w-50">
                                 <div class="col-12">
@@ -34,9 +43,9 @@
                                             <h4 class="card-title">Изображение новости</h4>
                                             <input type="file" class="dropify" data-height="300" name="image_main" multiple/>
 
-                                        </div> <!-- end card-body-->
-                                    </div> <!-- end card-->
-                                </div> <!-- end col -->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             @error('image_main')
@@ -98,6 +107,13 @@
                         @error('agency_id')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
+
+                        <div class="col-sm-10 mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="main_material">
+                                <label class="form-check-label">Главный материал</label>
+                            </div>
+                        </div>
 
 
                         <div class="btn-group">

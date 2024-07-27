@@ -26,6 +26,7 @@ class UpdateRequest extends FormRequest
             'lead' => 'required|string',
             'content' => 'required',
             'image_main' => 'nullable',
+            'main_material' => 'nullable|integer',
             'category_id' => 'nullable',
             'news_ing' => 'nullable',
             'user_id' => 'required',

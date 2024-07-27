@@ -15,15 +15,23 @@ class HomeController extends Controller
 
         $categories = Category::query()->take(10)->get();
 
+        $mainPosts = News::query()
+            ->with('category')
+            ->where('main_material', 1)
+            ->take(10)
+            ->get();
+
         $posts = News::query()
             ->with('category')
+            ->where('main_material', 0)
             ->take(6)
             ->orderBy('id', 'desc')
             ->get();
 
         return Inertia::render('Welcome', [
             'posts' => $posts,
-            'categories' => $categories
+            'categories' => $categories,
+            'mainPosts' => $mainPosts
         ]);
     }
 }

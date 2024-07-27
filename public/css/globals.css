@@ -132,6 +132,7 @@ header {
   align-items: center;
   justify-content: space-between;
   background-color: #F6F6F6;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
 }
 
 .logo a{
@@ -235,6 +236,8 @@ ul {
     cursor: pointer;
 }
 
+
+
 .news-date {
   font-size: 13px;
   color: #fff;
@@ -304,6 +307,10 @@ ul {
   font-size: 16px;
   font-weight: 400;
     cursor: pointer;
+}
+
+.news-item h2:hover {
+    color: #07A267;
 }
 
 .news-item {
@@ -543,9 +550,8 @@ h3 {
   cursor: pointer;
 }
 
-.municipality-city li:hover  {
-  font-size: 17px;
-}
+
+
 
 .municipality-city li.active {
   background-color: #DFDFDF;

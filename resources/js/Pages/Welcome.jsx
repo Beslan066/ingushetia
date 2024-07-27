@@ -6,10 +6,11 @@ import { useEffect, useState } from 'react';
 import HomeNewsSidebar from "@/Components/Home/HomeNewsSidebar.jsx";
 import { format, parseISO } from 'date-fns';
 import { ru } from 'date-fns/locale';
+import Slider from "@/Components/Home/Slider.jsx";
 export default function Welcome() {
 
 
-    let {posts, categories} = usePage().props;
+    let {posts, categories, mainPosts} = usePage().props;
 
 // Состояние для выбранной категории
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -49,28 +50,12 @@ export default function Welcome() {
                     <div className="container d-flex w-full  col-xxl-12">
                         <div className="main-left col-xxl-9 ">
                             <div className="main-materials ">
-                                <div className="main-material position-relative">
-                                    <img src="img/Rectangle 1.png" alt="Main material" className="w-100"/>
-                                    <div className="flex position-absolute w-100 flex-col  pl-40 pr-40 bottom-25">
-                                        <p className="news-date">27 июня <span
-                                            className="news-category ml-4">Туризм</span>
-                                        </p>
-                                        <a>
-                                            <h2 className="main-material-title">Количество туристов в
-                                                2023 году увеличилось на 24% по данным ИСТ</h2>
-                                        </a>
-                                        <div
-                                            className="w-100 slider-buttons d-flex justify-content-center bottom-12">
-                                            <button className="active"></button>
-                                            <button></button>
-                                            <button></button>
-                                            <button></button>
-                                            <button></button>
-                                            <button></button>
-                                            <button></button>
-                                        </div>
-                                    </div>
-                                </div>
+                                {mainPosts && <Slider
+
+                                    baseUrl={baseUrl}
+                                    mainPosts={mainPosts}
+                                />
+                                }
 
                                 <div className="filtered-news w-full d-flex mt-40 flex-column">
                                     <div className="filter-items">
@@ -92,7 +77,7 @@ export default function Welcome() {
                                     </div>
 
                                     <div className="d-flex flex-wrap">
-                                        {limitedPosts.map((post) => (
+                                    {limitedPosts.map((post) => (
                                             <div key={post.id} className="filtered-news-item col-4">
                                                 <div className="news-image">
                                                     <img src={`${baseUrl}/storage/${post.image_main}`} alt=""
@@ -457,7 +442,7 @@ export default function Welcome() {
                                 </div>
                             </div>
                             <div className="municipality-city col-xxl-3 d-flex flex-column ml-32">
-                                <div className="d-flex flex-column">
+                                <div className="d-flex flex-column mb-4">
                                     <h4 className="mb-24">Городские округа</h4>
                                     <ul className="d-flex flex-column mb-32">
                                         <li className="active">Магас</li>
@@ -469,7 +454,7 @@ export default function Welcome() {
                                 </div>
 
                                 <div className="d-flex flex-column">
-                                    <h4>Муниципальные районы</h4>
+                                    <h4 className="mb-24">Муниципальные районы</h4>
                                     <ul className="d-flex flex-column">
                                         <li>Назрановский район</li>
                                         <li>Сунженский район</li>
@@ -633,54 +618,7 @@ export default function Welcome() {
                     </div>
                 </section>
 
-                <section className="documents mb-32">
-                    <div className="container d-flex flex-column">
-                        <h3 className="mb-32">Документы</h3>
-                        <div className="document-item d-flex justify-content-between w-100 aligh-items-center">
-                            <div>
-                                <Link href="">
-                                    <h4>Отчет Правительства РИ за 2023 год</h4>
-                                </Link>
-                                <span>Отчеты</span>
-                            </div>
-                            <img src="img/icons/arrow grey.svg" alt=""/>
-                        </div>
-                        <div className="document-item d-flex justify-content-between w-100 aligh-items-center">
-                            <div>
-                                <Link href="">
-                                    <h4>Постановление Аравительства РИ о повышении пособий</h4>
-                                </Link>
-                                <span>Акты</span>
-                            </div>
-                            <img src="img/icons/arrow grey.svg" alt=""/>
-                        </div>
-                        <div className="document-item d-flex justify-content-between w-100 aligh-items-center">
-                            <div>
-                                <Link href="">
-                                    <h4>Республиканский закон №2884 от 19.04.2024</h4>
-                                </Link>
-                                <span>Законы</span>
-                            </div>
-                            <img src="img/icons/arrow grey.svg" alt=""/>
-                        </div>
-                        <div className="document-item d-flex justify-content-between w-100 aligh-items-center">
-                            <div>
-                                <Link href="">
-                                    <h4>Отчет правительства за 2022 год</h4>
-                                </Link>
-                                <span>Отчеты</span>
-                            </div>
-                            <img src="img/icons/arrow grey.svg" alt=""/>
-                        </div>
 
-                        <div className="more-news">
-                            <Link href="" className={'d-flex align-items-center'}>
-                                <span> Все документы</span>
-                                <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
-                            </Link>
-                        </div>
-                    </div>
-                </section>
 
                 <section className="other-resources mb-32">
                     <div className="container">

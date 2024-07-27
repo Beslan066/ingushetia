@@ -375,16 +375,50 @@
 
 <!-- Init js-->
 <script>
-    $(function () {
-        // Summernote
-        $('#summernote').summernote()
+    $(document).ready(function() {
+        // Define the custom button
+        var QuoteButton = function (context) {
+            var ui = $.summernote.ui;
 
-        // CodeMirror
+            // Create button
+            var button = ui.button({
+                contents: '<i class="note-icon-quote"/><span> Цитата</span>',
+                tooltip: 'Insert Quote',
+                click: function () {
+                    // Invoke insertText method with 'quote' on editor module.
+                    context.invoke('editor.insertText', '<blockquote>Вставьте сюда цитату</blockquote>');
+                }
+            });
+
+            return button.render();   // Return button as jQuery object
+        }
+
+        // Initialize Summernote
+        $('#summernote').summernote({
+            height: 300,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+                ['mybutton', ['quote']] // Custom button group
+            ],
+            buttons: {
+                quote: QuoteButton
+            }
+        });
         CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
             mode: "htmlmixed",
             theme: "monokai"
         });
-    })
+    });
+
+
+
 </script>
 
 </body>
