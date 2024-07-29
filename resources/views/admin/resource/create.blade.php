@@ -1,11 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
+
     <div class="row">
         <div class="col-12">
             <div class="card">
 
-                <form action="{{route('admin.page.store')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('admin.resources.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('post')
                     <div class="card-body">
@@ -14,18 +15,21 @@
                                 <label for="">Заголовок</label>
                                 <input class="form-control form-control-lg mb-3" type="text" placeholder="Введите заголовок" name="title">
                             </div>
+                            @error('title')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
 
                             <div class="form-group w-50">
-                                <label for="">Slug</label>
-                                <input class="form-control form-control-lg mb-3" type="text" placeholder="Оставьте пустым для автоматического заполнения" name="url">
+                                <label for="exampleFormControlTextarea1">Ссылка на ресурс</label>
+                                <input type="text" class="form-control" id="exampleFormControlTextarea1"  style="height: 101px;"
+                                          placeholder="Вставьте ссылку" name="link" />
                             </div>
-
-
-                            <div class="form-group w-50">
-                                <textarea id="summernote" placeholder="Введите что-нибудь" name="content"></textarea>
-                            </div>
+                            @error('lead')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
 
                         </div>
+
 
                         <div class="form-group w-50">
                             <label for="exampleFormControlSelect1">Автор</label>
@@ -36,16 +40,6 @@
                         @error('user_id')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
-
-                        <div class="form-group w-50">
-                            <label for="exampleFormControlSelect1">Родительская страница</label>
-                            <select class="form-control" id="exampleFormControlSelect1" name="parent_id">
-                                <option value="">Выберите страницу</option>
-                                @foreach($pages as $page)
-                                    <option value="{{$page->id}}">{{$page->title}}</option>
-                                @endforeach
-                            </select>
-                        </div>
 
                         <div class="form-group w-50 mt-2">
 
@@ -58,12 +52,6 @@
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
 
-                        <div class="col-sm-10 mb-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="important">
-                                <label class="form-check-label">Важная страница</label>
-                            </div>
-                        </div>
 
 
                         <div class="btn-group">

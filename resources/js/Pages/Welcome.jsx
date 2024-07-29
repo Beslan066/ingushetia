@@ -7,10 +7,12 @@ import HomeNewsSidebar from "@/Components/Home/HomeNewsSidebar.jsx";
 import { format, parseISO } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import Slider from "@/Components/Home/Slider.jsx";
+import MailIcon from "@/Components/Home/MailIcon.jsx";
+import VideoPlayer from "@/Components/Home/VideoPlayer.jsx";
 export default function Welcome() {
 
 
-    let {posts, categories, mainPosts} = usePage().props;
+    let {posts, categories, mainPosts, resources, photoReportages, videos} = usePage().props;
 
 // Состояние для выбранной категории
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -155,6 +157,12 @@ export default function Welcome() {
                                         <Link href="">Помощь нуждающимся</Link>
                                     </li>
                                 </ul>
+                                <div className="important-application d-flex align-items-center">
+                                    <MailIcon />
+                                    <span className={'ml-2'}>
+                                        Написать обращение
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -471,153 +479,41 @@ export default function Welcome() {
                     <div className="container d-flex flex-column">
                         <h3 className={'mb-24'}>Фото и видеорепортажи</h3>
                         <div className="d-flex justify-content-between flex-wrap">
-                            <div className="filtered-news-item col-4 ">
-                                <div className="news-image position-relative d-flex flex-column align-items-center">
-                                    <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
-                                    <div className={'position-absolute gallery-icon'}>
-                                        <img src="img/icons/gallery.svg" alt=""/>
-                                    </div>
-                                </div>
+                            {photoReportages.map((reportage) => (
+                                    <div className="filtered-news-item col-4">
+                                        <div
+                                            className="news-image position-relative d-flex flex-column align-items-center">
+                                            <img src={`${baseUrl}/storage/${reportage.image_main}`} alt={reportage.title}
+                                                 className="w-100 h-100" style={{objectFit: 'cover'}}/>
+                                            <div className={'position-absolute gallery-icon'}>
+                                                <img src="img/icons/gallery.svg" alt=""/>
+                                            </div>
+                                        </div>
 
-                                <div className="news-text pl-20 d-flex flex-column justify-content-between">
-                                    <div>
-                                        <Link href="">
-                                            <h4>Глава республики посетил открытие новой школы</h4>
-                                        </Link>
+                                        <div className="news-text pl-20 d-flex flex-column justify-content-between">
+                                            <div>
+                                                <Link href="">
+                                                    <h4>{reportage.title}</h4>
+                                                </Link>
+                                            </div>
+                                            <p className="news-date">{formatDate(reportage.published_at)}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <p className="news-date">21:57, 27 июня <span className="news-category ml-3">Проекты</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="filtered-news-item col-4">
-                                <div className="news-image position-relative d-flex flex-column align-items-center">
-                                    <img className="w-100 h-100" src="img/content/image 7 (2).png" alt=""/>
-                                    <div className={'position-absolute gallery-icon'}>
-                                        <img src="img/icons/gallery.svg" alt=""/>
-                                    </div>
-                                </div>
-                                <div className="news-text pl-20 d-flex flex-column justify-content-between">
-                                    <div>
-                                        <Link href="">
-                                            <h4>НИИ Ингушетии представели новый дрон для сельского хозяйства</h4>
-                                        </Link>
-                                    </div>
-                                    <p className="news-date">11:12, 27 июня <span className="news-category ml-3">Проекты</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="filtered-news-item col-4">
-                                <div className="news-image position-relative d-flex flex-column align-items-center">
-                                    <img className="w-100" src="img/content/image 7 (3).png" alt=""/>
-                                    <div className={'position-absolute gallery-icon'}>
-                                        <img src="img/icons/gallery.svg" alt=""/>
-                                    </div>
-                                </div>
+                            ))
+                            }
+                            {videos.map((video) => (
+                                <VideoPlayer
+                                    key={video.id}
+                                    video={video}
+                                    baseUrl={baseUrl}
+                                    date={formatDate(video.published_at)}
+                                />
+                            ))}
 
-                                <div className="news-text pl-20 d-flex flex-column justify-content-between">
-                                    <div>
-                                        <Link href="">
-                                            <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
-                                        </Link>
-                                    </div>
-                                    <p className="news-date">10:00, 27 июня <span className="news-category ml-3">Проекты</span>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="filtered-news-item col-4">
-                                <div className="news-image position-relative d-flex flex-column align-items-center">
-                                    <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
-                                    <div className={'position-absolute gallery-icon'}>
-                                        <img src="img/icons/play.svg" alt=""/>
-                                    </div>
-                                </div>
-
-                                <div className="news-text pl-20 d-flex flex-column justify-content-between">
-                                    <div>
-                                        <Link href="">
-                                            <h4>Глава республики посетил открытие новой школы</h4>
-                                        </Link>
-                                    </div>
-                                    <p className="news-date">22:35,26 июня <span className="news-category ml-3">Проекты</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="filtered-news-item col-4">
-                                <div className="news-image position-relative d-flex flex-column align-items-center">
-                                    <img className="w-100 h-100" src="img/content/image 7 (2).png" alt=""/>
-                                    <div className={'position-absolute gallery-icon'}>
-                                        <img src="img/icons/gallery.svg" alt=""/>
-                                    </div>
-                                </div>
-                                <div className="news-text pl-20 d-flex flex-column justify-content-between">
-                                    <div>
-                                        <Link href="">
-                                            <h4>НИИ Ингушетии представели новый дрон для сельского хозяйства</h4>
-                                        </Link>
-                                    </div>
-                                    <p className="news-date">21:16, 26 июня <span className="news-category ml-3">Проекты</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="filtered-news-item col-4">
-                                <div className="news-image position-relative d-flex flex-column align-items-center">
-                                    <img className="w-100" src="img/content/image 7 (3).png" alt=""/>
-                                    <div className={'position-absolute gallery-icon'}>
-                                        <img src="img/icons/play.svg" alt=""/>
-                                    </div>
-                                </div>
-
-                                <div className="news-text pl-20 d-flex flex-column justify-content-between">
-                                    <div>
-                                        <Link href="">
-                                            <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
-                                        </Link>
-                                    </div>
-                                    <p className="news-date">19:00, 26 июня <span className="news-category ml-3">Проекты</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="filtered-news-item col-4">
-                                <div className="news-image position-relative d-flex flex-column align-items-center">
-                                    <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
-                                    <div className={'position-absolute gallery-icon'}>
-                                        <img src="img/icons/gallery.svg" alt=""/>
-                                    </div>
-                                </div>
-
-                                <div className="news-text pl-20 d-flex flex-column justify-content-between">
-                                    <div>
-                                        <Link href="">
-                                            <h4>Глава республики посетил открытие новой школы</h4>
-                                        </Link>
-                                    </div>
-                                    <p className="news-date">18:33, 26 июня <span className="news-category ml-3">Проекты</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="filtered-news-item col-4">
-                                <div className="news-image position-relative d-flex flex-column align-items-center">
-                                    <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
-                                    <div className={'position-absolute gallery-icon'}>
-                                        <img src="img/icons/gallery.svg" alt=""/>
-                                    </div>
-                                </div>
-
-                                <div className="news-text pl-20 d-flex flex-column justify-content-between">
-                                    <div>
-                                        <Link href="">
-                                            <h4>Глава республики посетил открытие новой школы</h4>
-                                        </Link>
-                                    </div>
-                                    <p className="news-date">11:17, 25 июня <span className="news-category ml-3">Проекты</span>
-                                    </p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </section>
-
 
 
                 <section className="other-resources mb-32">
@@ -625,42 +521,19 @@ export default function Welcome() {
                         <h3 className="section-title">Полезные ресурсы</h3>
                     </div>
                     <div className="container d-flex justify-content-between aligh-items-center ">
-                        <div className="resource-item col-3 p-25 d-flex justify-content-between flex-column">
-                            <h3>Сайт президента РФ </h3>
-                            <div className="d-flex justify-content-between">
-                                <Link href="kremlin.ru">kremlin.ru</Link>
-                                <Link href="">
-                                    <img src="img/icons/external link.svg" alt=""/>
-                                </Link>
+                        {resources.map((resource) => (
+                            <div className="resource-item col-3 p-25 d-flex justify-content-between flex-column">
+                                <h3>{resource.title}</h3>
+                                <div className="d-flex justify-content-between">
+                                    <Link href={resource.link}>{resource.link}</Link>
+                                    <Link href="">
+                                        <img src="img/icons/external link.svg" alt=""/>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                        <div className="resource-item col-3 p-25 d-flex justify-content-between flex-column">
-                            <h3>Сайт правительства РФ</h3>
-                            <div className="d-flex justify-content-between">
-                                <Link href="government.ru">government.ru</Link>
-                                <Link href="">
-                                    <img src="img/icons/external link.svg" alt=""/>
-                                </Link>
-                            </div>
-                        </div>
-                        <div className="resource-item col-3 p-25 d-flex justify-content-between flex-column">
-                            <h3>Сервер органов государственной власти</h3>
-                            <div className="d-flex justify-content-between">
-                                <Link href="gov.ru">gov.ru</Link>
-                                <Link href="">
-                                    <img src="img/icons/external link.svg" alt=""/>
-                                </Link>
-                            </div>
-                        </div>
-                        <div className="resource-item col-3 p-25 d-flex justify-content-between flex-column">
-                            <h3>Поддержка предпринимателей</h3>
-                            <div className="d-flex justify-content-between">
-                                <Link href="мойбизнес25.рф">мойбизнес25.рф</Link>
-                                <Link href="">
-                                    <img src="img/icons/external link.svg" alt=""/>
-                                </Link>
-                            </div>
-                        </div>
+                        ))
+                        }
+
                     </div>
 
                     <div className="container mt-40">

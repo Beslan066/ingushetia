@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Page;
+namespace App\Http\Requests\Admin\Resource;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -19,24 +19,28 @@ class StoreRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+
+
+
     public function rules(): array
     {
         return [
             'title' => 'required|string',
-            'url' => 'nullable',
-            'content' => 'nullable',
+            'link' => 'required|string',
             'user_id' => 'required',
             'agency_id' => 'required',
-            'parent_id' => 'nullable',
-            'important' => 'nullable|integer',
         ];
     }
 
     public function messages()
     {
         return [
-            'title.required' => 'Заголовок обязателен для заполнения',
-            'title.max' => 'Длина заголовка не должна превышать 255 символов',
+            'title.required' => 'Заголовок обязателен для заполнения.',
+            'title.string' => 'Заголовок должен быть строкой.',
+            'link.required' => 'Заполните краткое описание.',
+            'link.string' => 'Краткое описание должно быть строкой.',
+            'user_id.required' => 'Ошибка при определении пользователя.',
+            'agency_id.required' => 'Ошибка при определении организации.',
         ];
     }
 }

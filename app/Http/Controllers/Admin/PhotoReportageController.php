@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PhotoReportage\UpdateRequest;
 use App\Http\Requests\Admin\PhotoReportage\StoreRequest;
+use App\Models\News;
 use App\Models\PhotoReportage;
 use App\Models\Category;
 use App\Models\User;
@@ -34,11 +35,12 @@ class PhotoReportageController extends Controller
     {
 
 
+        $news = News::query()->orderBy('id', 'desc')->get();
         $categories = Category::all();
         $authors = User::query()->where('role', 10)->get();
 
 
-        return view('admin.photo-reportage.create', compact('authors', 'categories'));
+        return view('admin.photo-reportage.create', compact('authors', 'categories', 'news'));
     }
 
     /**

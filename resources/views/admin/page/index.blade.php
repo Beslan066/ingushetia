@@ -45,8 +45,8 @@
                                                         <a href="{{route('admin.page.edit', $item->id)}}" class="btn btn-outline-primary waves-effect waves-light">Редактировать</a>
                                                         <form action="{{route('admin.page.delete', $item->id)}}" method="post">
                                                             @csrf
-                                                            @method('destroy')
-                                                            <button type="button" class="btn btn-outline-danger waves-effect waves-light">Удалить</button>
+                                                            @method('delete')
+                                                            <button type="submit" class="btn btn-outline-danger waves-effect waves-light">Удалить</button>
                                                         </form>
 
                                                     </div>

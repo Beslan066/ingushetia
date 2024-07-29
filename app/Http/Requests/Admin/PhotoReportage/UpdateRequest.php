@@ -27,6 +27,7 @@ class UpdateRequest extends FormRequest
             'image_main' => 'required',
             'slides' => 'nullable|array',
             'user_id' => 'required',
+            'news_id' => 'nullable',
             'agency_id' => 'required',
             'published_at' => 'required|date_format:Y-m-d\TH:i',
         ];

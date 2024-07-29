@@ -421,7 +421,7 @@ main .filtered-news-item h4 {
 .important {
   background-color: #F6F6F6;
   padding-bottom: unset !important;
-  height: 335px;
+  height: 355px;
   margin-top: 26px;
 }
 
@@ -434,6 +434,22 @@ main .filtered-news-item h4 {
   font-weight: 800;
   margin-bottom: 20px;
   border-bottom: 2px solid #DFDFDF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.important-application {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.important-application span {
+    font-size: 14px;
+    color: #07A267;
+    cursor: pointer;
+
 }
 
 .important ul {

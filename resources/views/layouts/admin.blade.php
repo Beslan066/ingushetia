@@ -235,10 +235,13 @@
                            href="javascript:void(0)">
                             <span>Lock Account</span>
                         </a>
-                        <a class="dropdown-item d-flex align-items-center justify-content-between"
-                           href="javascript:void(0)">
-                            <span>Log Out</span>
-                        </a>
+
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                            @method('post')
+
+                            <button type="submit">Выйти</button>
+                        </form>
                     </div>
                 </div>
 
@@ -272,8 +275,9 @@
                     <li><a href="{{route('admin.documents.index')}}" class=" waves-effect"><i class="bx bx-file"></i><span>Документы</span></a></li>
 
                     <li><a href="{{route('admin.photoReportage.index')}}" class=" waves-effect"><i class="bx bx-news"></i><span>Фоторепортажи</span></a></li>
-                    <li><a href="calendar.html" class=" waves-effect"><i class="bx bx-video"></i><span>Видео</span></a></li>
+                    <li><a href="{{route('admin.videos.index')}}" class=" waves-effect"><i class="bx bx-video"></i><span>Видео</span></a></li>
                     <li><a href="{{route('admin.categories.index')}}" class=" waves-effect"><i class="bx bx-tag"></i><span>Категории</span></a></li>
+                    <li><a href="{{route('admin.resources.index')}}" class=" waves-effect"><i class="bx bx-link"></i><span>Полезные ресурсы</span></a></li>
                     <li><a href="{{route('admin.agencies.index')}}" class=" waves-effect"><i class="bx bx-buildings"></i><span>Министерства</span></a></li>
                     <li><a href="calendar.html" class=" waves-effect"><i class="bx bxs-map"></i><span>Регион</span></a></li>
 
@@ -352,6 +356,7 @@
 
 <!-- jQuery  -->
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/metismenu.min.js')}}"></script>
 <script src="{{asset('assets/js/waves.js')}}"></script>
@@ -417,7 +422,39 @@
         });
     });
 
+    // Загрузка видео
 
+
+    document.getElementById('videoInput').addEventListener('change', function() {
+        const form = document.getElementById('upload-form');
+        const formData = new FormData(form);
+        const progressBar = document.querySelector('.progress-bar');
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', form.action, true);
+
+        xhr.upload.onprogress = function(event) {
+            if (event.lengthComputable) {
+                const percentComplete = Math.round((event.loaded / event.total) * 100);
+                progressBar.style.width = percentComplete + '%';
+                progressBar.setAttribute('aria-valuenow', percentComplete);
+                progressBar.textContent = percentComplete + '%';
+            }
+        };
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                alert('Видео успешно загружено!');
+                progressBar.style.width = '0%';
+                progressBar.setAttribute('aria-valuenow', 0);
+                progressBar.textContent = '0%';
+            } else {
+                alert('Произошла ошибка при загрузке видео.');
+            }
+        };
+
+        xhr.send(formData);
+    });
 
 </script>
 

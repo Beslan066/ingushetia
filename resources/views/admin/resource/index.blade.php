@@ -8,11 +8,11 @@
                 <div class="card-body">
                     <div class="mb-2 d-flex justify-content-between">
                         <div>
-                            <h2>видео</h2>
+                            <h2>Полезные ресурсы</h2>
                         </div>
 
                         <div>
-                            <a href="{{route('admin.videos.create')}}">
+                            <a href="{{route('admin.resources.create')}}">
                                 <button type="button" class="btn btn-primary waves-effect waves-light">Добавить</button>
                             </a>
                         </div>
@@ -25,26 +25,22 @@
                                         <th class="sorting" tabindex="0" aria-controls="selection-datatable" rowspan="1" colspan="1" style="width: 272px;" aria-label="Name: activate to sort column ascending">id</th>
                                         <th class="sorting" tabindex="0" aria-controls="selection-datatable" rowspan="1" colspan="1" style="width: 272px;" aria-label="Name: activate to sort column ascending">Заголовок</th>
                                         <th class="sorting" tabindex="0" aria-controls="selection-datatable" rowspan="1" colspan="1" style="width: 394px;" aria-label="Position: activate to sort column ascending">Автор</th>
-                                        <th class="sorting_asc" tabindex="0" aria-controls="selection-datatable" rowspan="1" colspan="1" style="width: 193px;" aria-label="Start date: activate to sort column descending" aria-sort="ascending">Опубликованно</th>
                                         <th class="sorting" tabindex="0" aria-controls="selection-datatable" rowspan="1" colspan="1" style="width: 159px; " aria-label="Salary: activate to sort column ascending">Действие</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
 
-                                    @if(isset($videos))
-                                        @foreach($videos as $item)
+                                    @if(isset($resources))
+                                        @foreach($resources as $item)
                                             <tr role="row" class="odd">
                                                 <td class="" tabindex="0">{{$item->id}}</td>
                                                 <td class="" tabindex="0">{{$item->title}}</td>
-                                                <td>{{$item->user->name}}</td>
-                                                <td style="display: none;">Нет</td>
-                                                <td class="sorting_1">{{$item->published_at}}</td>
                                                 <td style="">
                                                     <div class="btn-group">
                                                         <button type="button" class="btn btn-outline-success waves-effect waves-light">Перевод</button>
-                                                        <a href="{{route('admin.videos.edit', $item->id)}}" class="btn btn-outline-primary waves-effect waves-light">Редактировать</a>
-                                                        <form action="{{route('admin.videos.delete', $item->id)}}" method="post">
+                                                        <a href="{{route('admin.resources.edit', $item->id)}}" class="btn btn-outline-primary waves-effect waves-light">Редактировать</a>
+                                                        <form action="{{route('admin.resources.delete', $item->id)}}" method="post">
                                                             @csrf
                                                             @method('delete')
                                                             <button type="submit" class="btn btn-outline-danger waves-effect waves-light">Удалить</button>

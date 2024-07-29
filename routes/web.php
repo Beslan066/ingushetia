@@ -58,6 +58,17 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
 
     });
 
+
+    Route::group(['namespace' => 'Video', 'prefix' => 'admin'], function () {
+        Route::get('/videos', [App\Http\Controllers\Admin\VideoController::class, 'index'])->name('admin.videos.index');
+        Route::get('/videos/create', [App\Http\Controllers\Admin\VideoController::class, 'create'])->name('admin.videos.create');
+        Route::post('/videos/store', [App\Http\Controllers\Admin\VideoController::class, 'store'])->name('admin.videos.store');
+        Route::get('/videos/{video}/edit', [App\Http\Controllers\Admin\VideoController::class, 'edit'])->name('admin.videos.edit');
+        Route::patch('/videos/{video}', [App\Http\Controllers\Admin\VideoController::class, 'update'])->name('admin.videos.update');
+        Route::delete('/videos/{video}', [App\Http\Controllers\Admin\VideoController::class, 'destroy'])->name('admin.videos.delete');
+
+    });
+
     Route::group(['namespace' => 'PhotoReportage', 'prefix' => 'admin'], function () {
         Route::get('/photo-reportage', [App\Http\Controllers\Admin\PhotoReportageController::class, 'index'])->name('admin.photoReportage.index');
         Route::get('/photo-reportage/create', [App\Http\Controllers\Admin\PhotoReportageController::class, 'create'])->name('admin.photoReportage.create');
@@ -98,6 +109,18 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
         Route::get('/pages/{page}/edit', [App\Http\Controllers\Admin\PageController::class, 'edit'])->name('admin.page.edit');
         Route::patch('/pages/{page}', [App\Http\Controllers\Admin\PageController::class, 'update'])->name('admin.page.update');
         Route::delete('/pages/{page}', [App\Http\Controllers\Admin\PageController::class, 'destroy'])->name('admin.page.delete');
+
+    });
+
+
+    Route::group(['namespace' => 'Resource', 'prefix' => 'admin'], function () {
+        Route::get('/resources', [App\Http\Controllers\Admin\ResourceController::class, 'index'])->name('admin.resources.index');
+
+        Route::get('/resources/create', [App\Http\Controllers\Admin\ResourceController::class, 'create'])->name('admin.resources.create');
+        Route::post('/resources/store', [App\Http\Controllers\Admin\ResourceController::class, 'store'])->name('admin.resources.store');
+        Route::get('/resources/{resource}/edit', [App\Http\Controllers\Admin\ResourceController::class, 'edit'])->name('admin.resources.edit');
+        Route::patch('/resources/{resource}', [App\Http\Controllers\Admin\ResourceController::class, 'update'])->name('admin.resources.update');
+        Route::delete('/resources/{resource}', [App\Http\Controllers\Admin\ResourceController::class, 'destroy'])->name('admin.resources.delete');
 
     });
 

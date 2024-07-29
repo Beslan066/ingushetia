@@ -30,8 +30,11 @@ class PageController extends Controller
     public function create()
     {
 
+
+        $pages = Page::all();
+
         $authors = User::query()->where('role', 10)->get();
-        return view('admin.page.create', compact('authors'));
+        return view('admin.page.create', compact('authors', 'pages'));
 
     }
 
@@ -42,6 +45,8 @@ class PageController extends Controller
     {
         $data = $request->validated();
         $data['url'] = Str::slug($data['title']);
+        // Обработка значения чекбокса
+        $data['important'] = $request->has('important') ? 1 : 0;
 
         $page = Page::create($data);
 
@@ -61,7 +66,11 @@ class PageController extends Controller
      */
     public function edit(Page  $page)
     {
-       return view('admin.page.edit', compact('page'));
+
+        $pages = Page::all();
+
+        $authors = User::query()->where('role', 10)->get();
+       return view('admin.page.edit', compact('page', 'authors', 'pages'));
     }
 
     /**
@@ -70,6 +79,9 @@ class PageController extends Controller
     public function update(UpdateRequest $request, Page $page)
     {
         $data = $request->validated();
+        $data['url'] = Str::slug($data['title']);
+        // Обработка значения чекбокса
+        $data['important'] = $request->has('important') ? 1 : 0;
 
 
         $page->update($data);

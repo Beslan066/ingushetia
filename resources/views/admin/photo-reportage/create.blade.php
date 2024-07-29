@@ -18,21 +18,34 @@
 
 
 
-                            <div class="form-group w-50">
-                                <textarea id="summernote" placeholder="Введите что-нибудь" name="content"></textarea>
+                            <div class="form-group w-100 d-flex align-items-center">
+                                <div class="w-50">
+                                    <textarea id="summernote" placeholder="Введите что-нибудь" name="content"></textarea>
+                                </div>
+
+                                <div class="w-50 d-flex flex-column align-items-center">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-body">
+
+                                                <h4 class="card-title">Изображение новости</h4>
+                                                <input type="file" class="dropify" data-height="300" name="image_main" multiple/>
+
+                                            </div> <!-- end card-body-->
+                                        </div> <!-- end card-->
+                                    </div> <!-- end col -->
+
+                                    <div class="col-12">
+                                        <div class="custom-file">
+                                            <input type="file" name="slides[]" multiple style="padding: 10px; border: 1px solid green">
+                                            <label for="exampleInputFile">Слайд-шоу фотографий</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="row w-50">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
 
-                                            <h4 class="card-title">Изображение новости</h4>
-                                            <input type="file" class="dropify" data-height="300" name="image_main" multiple/>
-
-                                        </div> <!-- end card-body-->
-                                    </div> <!-- end card-->
-                                </div> <!-- end col -->
                             </div>
 
                             @error('image_main')
@@ -49,6 +62,16 @@
                         @enderror
 
                         <div class="form-group w-50">
+                            <label for="exampleFormControlSelect1">Новость для репортажа</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="news_id">
+                                <option value="">Выберите новость или оставьте пустой, если у фоторепортажа нет новости</option>
+                                @foreach($news as $item)
+                                    <option value="{{$item->id}}">{{$item->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group w-50">
                             <label for="exampleFormControlSelect1">Автор</label>
                             <select class="form-control" id="exampleFormControlSelect1" name="user_id">
                                 <option value="{{auth()->user()->id}}">{{auth()->user()->name}}</option>
@@ -58,12 +81,6 @@
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
 
-                        <div class="form-group w-50">
-                            <div class="custom-file">
-                                <input type="file" name="slides[]" multiple style="padding: 10px; border: 1px solid green">
-                                <label for="exampleInputFile">Слайд-шоу фотографий</label>
-                            </div>
-                        </div>
 
                         <div class="form-group w-50 mt-2">
 

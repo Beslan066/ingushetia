@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\News;
+use App\Models\PhotoReportage;
+use App\Models\Resource;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -14,6 +17,9 @@ class HomeController extends Controller
     {
 
         $categories = Category::query()->take(10)->get();
+        $resources = Resource::query()->take(4)->get();
+        $photoReportages = PhotoReportage::query()->take(4)->orderBy('published_at', 'desc')->get();
+        $videos = Video::query()->take(4)->orderBy('published_at', 'desc')->get();
 
         $mainPosts = News::query()
             ->with('category')
@@ -31,7 +37,10 @@ class HomeController extends Controller
         return Inertia::render('Welcome', [
             'posts' => $posts,
             'categories' => $categories,
-            'mainPosts' => $mainPosts
+            'mainPosts' => $mainPosts,
+            'resources' => $resources,
+            'photoReportages' => $photoReportages,
+            'videos' => $videos
         ]);
     }
 }

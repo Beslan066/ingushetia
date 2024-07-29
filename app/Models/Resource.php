@@ -5,18 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PhotoReportage extends Model
+class Resource extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'title',
-        'content',
-        'image_main',
-        'slides',
+        'link',
         'user_id',
-        'news_id',
-        'published_at',
-        'agency_id'
+        'agency_id',
     ];
 
     public  function user() {
@@ -27,9 +24,4 @@ class PhotoReportage extends Model
     {
         return $this->belongsTo(Agency::class, 'agency_id', 'id');
     }
-
-    public  function news() {
-        return $this->belongsTo(News::class, 'news_id', 'id');
-    }
-
 }
