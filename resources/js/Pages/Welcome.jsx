@@ -9,32 +9,12 @@ import { ru } from 'date-fns/locale';
 import Slider from "@/Components/Home/Slider.jsx";
 import MailIcon from "@/Components/Home/MailIcon.jsx";
 import VideoPlayer from "@/Components/Home/VideoPlayer.jsx";
+import FilteredNews from "@/Components/Home/FilteredNews.jsx";
 export default function Welcome() {
 
 
     let {posts, categories, mainPosts, resources, photoReportages, videos} = usePage().props;
 
-// Состояние для выбранной категории
-    const [selectedCategory, setSelectedCategory] = useState(null);
-
-    // Функция для обработки клика по категории
-    const handleCategoryClick = (category) => {
-        setSelectedCategory(category);
-    };
-
-    // Функция для обработки клика по кнопке "Все новости"
-    const handleAllNewsClick = () => {
-        setSelectedCategory(null);
-    };
-
-    // Фильтрация постов по выбранной категории
-    const filteredPosts = selectedCategory
-        ? posts.filter(post => post.category_id === selectedCategory.id)
-        : posts;
-
-
-    // Ограничение вывода новостей до 3 постов
-    const limitedPosts = filteredPosts.slice(0, 3);
 
     // Функция для форматирования даты
     const formatDate = (dateString) => {
@@ -43,9 +23,9 @@ export default function Welcome() {
     };
 
     const baseUrl = import.meta.env.VITE_APP_URL;
+
+
     return (
-
-
         <Guest>
             <div>
                 <main className="mt-40">
@@ -59,53 +39,21 @@ export default function Welcome() {
                                 />
                                 }
 
-                                <div className="filtered-news w-full d-flex mt-40 flex-column">
-                                    <div className="filter-items">
-                                        <button
-                                            className={`filter-button ${selectedCategory === null ? 'active' : ''}`}
-                                            onClick={handleAllNewsClick}
-                                        >
-                                            Все новости
-                                        </button>
-                                        {categories.map((category) => (
-                                            <button
-                                                key={category.id}
-                                                className={`filter-button ${selectedCategory && selectedCategory.id === category.id ? 'active' : ''}`}
-                                                onClick={() => handleCategoryClick(category)}
-                                            >
-                                                {category.title}
-                                            </button>
-                                        ))}
-                                    </div>
+                                {posts.map((post) => (
 
-                                    <div className="d-flex flex-wrap">
-                                    {limitedPosts.map((post) => (
-                                            <div key={post.id} className="filtered-news-item col-4">
-                                                <div className="news-image">
-                                                    <img src={`${baseUrl}/storage/${post.image_main}`} alt=""
-                                                         className="w-100 h-100"/>
-                                                </div>
+                                    <FilteredNews
+                                        key={post.id}
+                                        title={post.title}
+                                        image={post.image_main}
+                                        lead={post.lead}
+                                        content={post.content}
+                                        user={post.user}
+                                        agency={post.agency}
+                                        category={post.category.title}
+                                        published={post.published_at}
+                            />
 
-                                                <div className="news-text">
-                                                    <p className="news-date">
-                                                        {formatDate(post.published_at)} <span
-                                                        className="news-category ml-4">{post.category.title}</span>
-                                                    </p>
-                                                    <Link href={post.link}>
-                                                        <h4>{post.title}</h4>
-                                                    </Link>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-
-                                    <div className="more-news">
-                                        <Link href={route('news.index')} className={'d-flex'}>
-                                            <span>Больше новостей по этой теме</span>
-                                            <img src="img/icons/longarrow.svg" alt="" className={'pl-3'}/>
-                                        </Link>
-                                    </div>
-                                </div>
+                                ))}
 
                             </div>
                         </div>
@@ -492,9 +440,7 @@ export default function Welcome() {
 
                                         <div className="news-text pl-20 d-flex flex-column justify-content-between">
                                             <div>
-                                                <Link href="">
-                                                    <h4>{reportage.title}</h4>
-                                                </Link>
+                                                <h4>{reportage.title}</h4>
                                             </div>
                                             <p className="news-date">{formatDate(reportage.published_at)}
                                             </p>

@@ -24,6 +24,7 @@ class HomeController extends Controller
         $mainPosts = News::query()
             ->with('category')
             ->where('main_material', 1)
+            ->orderBy('published_at', 'desc')
             ->take(10)
             ->get();
 

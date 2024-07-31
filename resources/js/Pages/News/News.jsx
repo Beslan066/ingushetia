@@ -1,7 +1,42 @@
+import React from 'react'
 import Guest from "@/Layouts/GuestLayout.jsx";
 import Filter from "@/Components/Filter.jsx";
+import {usePage} from "@inertiajs/react";
+import {useState, useEffect} from "react";
+import {format, parseISO} from "date-fns";
+import {ru} from "date-fns/locale";
+import Slider from "@/Components/Home/Slider.jsx";
+import NewsComponent from "@/Components/News/NewsComponent.jsx";
 
 export default function News() {
+
+    let {mainPosts} = usePage().props;
+    const baseUrl = import.meta.env.VITE_APP_URL;
+
+    const { news: initialNews, categories } = usePage().props;
+    const [news, setNews] = useState(initialNews);
+    const [filters, setFilters] = useState({ category: '', dateFrom: '', dateTo: '' });
+
+    useEffect(() => {
+        applyFilters();
+    }, [filters]);
+
+    const applyFilters = () => {
+        const filteredNews = initialNews.filter((item) => {
+            const matchesCategory = filters.category ? item.category.title === filters.category : true;
+            const matchesDateFrom = filters.dateFrom ? new Date(item.published_at) >= new Date(filters.dateFrom) : true;
+            const matchesDateTo = filters.dateTo ? new Date(item.published_at) <= new Date(filters.dateTo) : true;
+            return matchesCategory && matchesDateFrom && matchesDateTo;
+        });
+
+        setNews(filteredNews);
+    };
+
+    const handleFilterChange = (newFilters) => {
+        setFilters(newFilters);
+    };
+
+
     return (
         <Guest>
             <main className="mt-40">
@@ -11,139 +46,18 @@ export default function News() {
                 <div className="container d-flex w-full  col-xxl-12 news-page">
                     <div className="main-left col-xxl-9">
                         <div className="main-materials">
-                            <div className="main-material position-relative">
-                                <img src="img/Rectangle 1.png" alt="Main material" className="w-100"/>
-                                <div className="flex position-absolute w-100 flex-col  pl-40 pr-40 bottom-25">
-                                    <p className="news-date">27 июня <span className="news-category ml-4">Проекты</span>
-                                    </p>
-                                    <a href="">
-                                        <h2 className="main-material-title">Количество туристов в 2023 году увеличилось
-                                            на 24% по данным ИСТ</h2>
-                                    </a>
-                                    <div
-                                        className="w-100 slider-buttons  d-flex justify-content-center bottom-12">
-                                        <button className="active"></button>
-                                        <button></button>
-                                        <button></button>
-                                        <button></button>
-                                        <button></button>
-                                        <button></button>
-                                        <button></button>
-                                    </div>
-                                </div>
-                            </div>
+                            {mainPosts && <Slider
+
+                                baseUrl={baseUrl}
+                                mainPosts={mainPosts}
+                            />
+                            }
 
                             <div className="filtered-news w-full d-flex mt-40 flex-column">
 
-                                <Filter />
+                                <Filter onFilterChange={handleFilterChange} categories={categories}/>
 
-                                <div className="d-flex flex-wrap">
-                                    <div className="d-flex news-row news-image-row">
-                                        <div className="filtered-news-item col-4">
-                                            <div className="news-image">
-                                                <img src="img/Rectangle 1.png" alt="" className="w-100 h-100"/>
-                                            </div>
-
-                                            <div className="news-text">
-                                                <p className="news-date">27 июня <span
-                                                    className="news-category ml-4">Проекты</span></p>
-                                                <a href="">
-                                                    <h4>Глава республики посетил открытие новой школы</h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="filtered-news-item col-4">
-                                            <div className="news-image">
-                                                <img className="w-100 h-100" src="img/content/image 7 (2).png" alt=""/>
-                                            </div>
-                                            <div className="news-text">
-                                                <p className="news-date">27 июня <span
-                                                    className="news-category ml-4">Проекты</span></p>
-                                                <a href="">
-                                                    <h4>НИИ Ингушетии представели новый дрон для сельского
-                                                        хозяйства</h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="filtered-news-item col-4">
-                                            <div className="news-image">
-                                                <img className="w-100" src="img/content/image 7 (3).png" alt=""/>
-                                            </div>
-
-                                            <div className="news-text">
-                                                <p className="news-date">27 июня <span
-                                                    className="news-category ml-4">Проекты</span></p>
-                                                <a href="">
-                                                    <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="d-flex flex-wrap news-row">
-                                        <div className="filtered-news-item col-4">
-                                            <div className="news-text">
-                                                <p className="news-date">27 июня <span
-                                                    className="news-category ml-4">Проекты</span></p>
-                                                <a href="">
-                                                    <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="filtered-news-item col-4">
-                                            <div className="news-text">
-                                                <p className="news-date">27 июня <span
-                                                    className="news-category ml-4">Проекты</span></p>
-                                                <a href="">
-                                                    <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="filtered-news-item col-4">
-                                            <div className="news-text">
-                                                <p className="news-date">27 июня <span
-                                                    className="news-category ml-4">Проекты</span></p>
-                                                <a href="">
-                                                    <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className={'d-flex flex-wrap'}>
-                                        <div className="filtered-news-item col-4">
-                                            <div className="news-text">
-                                                <p className="news-date">27 июня <span
-                                                    className="news-category ml-4">Проекты</span></p>
-                                                <a href="">
-                                                    <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="filtered-news-item col-4">
-                                            <div className="news-text">
-                                                <p className="news-date">27 июня <span
-                                                    className="news-category ml-4">Проекты</span></p>
-                                                <a href="">
-                                                    <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div className="filtered-news-item col-4">
-                                            <div className="news-text">
-                                                <p className="news-date">27 июня <span
-                                                    className="news-category ml-4">Проекты</span></p>
-                                                <a href="">
-                                                    <h4>Курорт “Армхи” будет полностью обновлен к 2025 году </h4>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="load-news d-flex justify-content-center w-100">
-                                        <button>Показать еще</button>
-                                    </div>
-                                </div>
+                                <NewsComponent news={news} baseUrl={baseUrl} />
 
                             </div>
 
@@ -178,7 +92,7 @@ export default function News() {
                             <div className="news-item">
                                 <div className="news-date d-flex ">
                                     <div>
-                                    18:15, 29 июня<span
+                                        18:15, 29 июня<span
                                         className="news-category">Общество</span>
                                     </div>
                                 </div>
@@ -188,7 +102,7 @@ export default function News() {
 
                             </div>
                             <div className="news-item">
-                                <div className="news-date d-flex ">
+                            <div className="news-date d-flex ">
                                     <div>
                                         21:57, 28 июня<span
                                         className="news-category">Общество</span>

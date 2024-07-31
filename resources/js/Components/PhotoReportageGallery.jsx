@@ -1,11 +1,4 @@
-import "../../../public/css/modal.css";
-import React from "react";
-export default function Modal({ active, onClose, title, image, content, category, date }) {
-
-    const baseUrl = import.meta.env.VITE_APP_URL;
-
-
-
+export default function PhotoReportageGallery() {
     return (
         <div>
             <div className={`d-flex justify-content-center modal-section`}>
@@ -20,7 +13,7 @@ export default function Modal({ active, onClose, title, image, content, category
                                                          alt=""/></span>
                             <a className="ml-12" href="">{title}</a>
                         </p>
-                        <div className={'d-flex align-items-center'}>
+                        <div>
                             <button className="mr-12"><img src="img/icons/Print.png" alt=""/></button>
                             <button onClick={onClose}><img src="img/icons/Close.png" alt=""/></button>
                         </div>

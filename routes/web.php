@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\NewsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -30,9 +31,7 @@ Route::get('/sostav-pravitelstva', function () {
 });
 
 
-Route::get('/news', function () {
-    return Inertia::render('News/News');
-})->name('news.index');
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 
 Route::group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
     Route::get('/admin', [\App\Http\Controllers\Admin\IndexController::class, 'index'])->middleware(['auth', 'verified'])->name('admin');
